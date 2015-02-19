@@ -10,26 +10,38 @@
 //
 //	FONT FAMILIES
 //
-// @mixin font-iconset {
-// 	font-family: 'Puesto-Iconset';
-// 	line-height: 1;
-// 	text-decoration: none;
-// 	text-shadow: none;
-// }
-@mixin font-family-helvetica ($weight) {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
- 	font-weight: $weight;
+@mixin font-family-arvo-regular {
+	font-family: 'Arvo', serif;
+ 	font-weight: 400;
+}
+@mixin font-family-arvo-bold {
+	font-family: 'Arvo', serif;
+ 	font-weight: 700;
+}
+
+@mixin font-family-open-sans-regular {
+	font-family: 'Open Sans', sans-serif;
+ 	font-weight: 400;
+}
+@mixin font-family-open-sans-semi-bold {
+	font-family: 'Open Sans', sans-serif;
+ 	font-weight: 600;
+}
+@mixin font-family-open-sans-extra-bold {
+	font-family: 'Open Sans', sans-serif;
+ 	font-weight: 800;
 }
 
 //
 //	FONT SIZES
 //
-$huge: 36px;
-$large: 28px;
-$medium: 24px;
-$default: 18px;
-$small: 14px;
-$tiny: 12px;
+$huge: 32px;
+$large: 22px;
+$medium: 18px;
+$default: 15px;
+$small: 12px;
+$tiny: 10px;
+
 @mixin font-size-huge {
 	font-size: $huge;
 	line-height: $huge * 1.25;

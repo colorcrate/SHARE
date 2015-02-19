@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><?php wp_title(' | ', true, 'right'); ?></title>
 		
-		<link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/814c7287-9775-4a7e-9046-aac659890974.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|Open+Sans:400italic,600italic,800italic,600,800,400' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 
 		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -25,10 +25,7 @@
 			<header id="page-header" role="banner">
 		
 				<section id="branding">
-					<div id="site-title">
-						<h1><a class="fill" href="<?php echo esc_url(home_url('/')); ?>" title="<?php esc_attr_e( get_bloginfo('name'), 'blankslate' ); ?>" rel="home"><?php echo esc_html( get_bloginfo('name') ); ?></a></h1>
-					</div>
-					<div id="site-description"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('description'); ?></a></div>
+					<h1><a class="fill" href="<?php echo esc_url(home_url('/')); ?>" title="<?php esc_attr_e( get_bloginfo('name'), 'blankslate' ); ?>" rel="home"><?php echo esc_html( get_bloginfo('name') ); ?></a></h1>
 				</section>
 				
 				<nav id="main-nav" role="navigation">

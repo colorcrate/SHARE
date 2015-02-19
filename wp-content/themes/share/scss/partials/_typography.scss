@@ -5,44 +5,44 @@
 */
 
 h1 {
-    @include font-family-helvetica (700);
+    @include font-family-arvo-regular;
     @include font-size-huge;
     b, strong {
-        @include font-family-helvetica (1000);
+        @include font-family-arvo-bold;
     }
 }
 h2 {
-    @include font-family-helvetica (300);
+    @include font-family-arvo-regular;
     @include font-size-huge;
     b, strong {
-        @include font-family-helvetica (700);
+        @include font-family-arvo-bold;
     }
 }
 h3 {
-    @include font-family-helvetica (700);
+    @include font-family-arvo-regular;
     @include font-size-large;
     b, strong {
-        @include font-family-helvetica (1000);
+        @include font-family-arvo-bold;
     }
 }
 h4 {
-    @include font-family-helvetica (300);
+    @include font-family-arvo-regular;
     @include font-size-large;
     b, strong {
-        @include font-family-helvetica (700);
+        @include font-family-arvo-bold;
     }
 }
 h5 {
-    @include font-family-helvetica (700);
+    @include font-family-arvo-regular;
     @include font-size-medium;
     b, strong {
-        @include font-family-helvetica (1000);
+        @include font-family-arvo-bold;
     }
 }
 h6 {
-    @include font-family-helvetica (300);
+    @include font-family-arvo-regular;
     @include font-size-medium;
     b, strong {
-        @include font-family-helvetica (700);
+        @include font-family-arvo-bold;
     }
 }
