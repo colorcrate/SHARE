@@ -27,6 +27,7 @@ body {
 }
 a {
 	color: $blue;
+	text-decoration: none;
 	&:hover {
 		color: $magenta;
 	}
@@ -34,6 +35,16 @@ a {
 
 a, a img, input[type=submit] {
 	@include transition(all,250ms);	
+}
+
+p, ul, ol, blockquote {
+	font-size: $default;
+	line-height: 1.6;
+}
+blockquote {
+	padding-left: 30px;
+	margin-left: 30px;
+	border-left: 1px solid $black-15;
 }
 
 address {
@@ -60,7 +71,7 @@ hr {
 	display: block;
 	height: 1px;
 	border: 0;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid $black-15;
 	margin: 1em 0;
 	padding: 0;
 }

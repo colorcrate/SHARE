@@ -8,6 +8,8 @@
 @import "partials/typography"; // Universal font styles and @font-face declarations
 @import "partials/header"; // Everything that falls within header#header area (plus #img-holder)
 @import "partials/content"; // Everything that falls within section#content area
+@import "partials/sidebar"; // Everything that falls within section#sidebar area
+@import "partials/news"; // News section styles
 @import "partials/footer"; // Everything that falls within footer#footer
 
 // Vendor

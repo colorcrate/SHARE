@@ -3,3 +3,30 @@
 	CONTENT (scss/partials/_content.scss)
 ==========================================================================
 */
+// Base content styles that apply across large swaths of the site.
+
+#content {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @include media-query('tablet-and-larger') {
+      padding: 0 20px;
+    }
+  }
+}
+
+.section-header {
+  background: $blue;
+
+  h1 {
+    padding: 15px 0 15px 70px;
+    color: $white;
+    font-size: $large;
+  }
+}
+
+.main-content {
+  @include span(65%);
+  padding-left: 70px;
+  padding-top: 40px;
+}

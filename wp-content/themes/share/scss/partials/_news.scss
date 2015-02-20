@@ -1,0 +1,27 @@
+/*
+==========================================================================
+  NEWS STYLES (scss/partials/_news.scss)
+==========================================================================
+*/
+article.news {
+  padding: 0 0 40px 0;
+  margin: 0 0 40px 0;
+  border-bottom: 1px solid $black-15;
+
+
+  header {
+    h2 {
+      font-size: $huge - 4;
+      margin: .25em 0 .5em;
+    }
+    .entry-meta {
+      font-size: $small;
+    }
+  }
+
+  .entry-summary {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

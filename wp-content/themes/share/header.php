@@ -23,14 +23,18 @@
 		<div id="wrapper" class="hfeed grid-container">
 		
 			<header id="page-header" role="banner">
+
+				<div class="container">
 		
-				<section id="branding">
-					<h1><a class="fill" href="<?php echo esc_url(home_url('/')); ?>" title="<?php esc_attr_e( get_bloginfo('name'), 'blankslate' ); ?>" rel="home"><?php echo esc_html( get_bloginfo('name') ); ?></a></h1>
-				</section>
-				
-				<nav id="main-nav" role="navigation">
-					<a class="handle icon"></a>
-					<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-				</nav>
+					<section id="branding">
+						<h1><a class="fill" href="<?php echo esc_url(home_url('/')); ?>" title="<?php esc_attr_e( get_bloginfo('name'), 'blankslate' ); ?>" rel="home"><?php echo esc_html( get_bloginfo('name') ); ?></a></h1>
+					</section>
+					
+					<nav id="main-nav" role="navigation">
+						<a class="handle icon"></a>
+						<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+					</nav>
+
+				</div> <!-- .container -->
 		
 			</header> <!-- header#page-header -->

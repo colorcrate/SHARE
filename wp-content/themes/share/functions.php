@@ -6,9 +6,10 @@ function blankslate_setup() {
 	add_theme_support('post-thumbnails');
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 640;
-	register_nav_menus(
-		array( 'main-menu' => __( 'Main Menu', 'blankslate' ) )
-	);
+	register_nav_menus(array( // Using array to specify more menus if needed
+		'header-menu' => __('Header Menu', 'blankslate'), // Main Navigation
+		'footer-menu' => __('Footer Menu', 'blankslate') // Extra Navigation if needed (duplicate as many as you need!)
+	));
 }
 add_action('wp_enqueue_scripts', 'blankslate_load_scripts');
 function blankslate_load_scripts() {
@@ -64,6 +65,13 @@ function blankslate_comments_number($count) {
 //	SHARE SPECIFIC STUFF
 //
 // ======================================================
+
+// Prettier excerpts
+function new_excerpt_more( $more ) {
+	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('...continue reading.', 'your-text-domain') . '</a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
+
 
 // ------------------------------------------------------
 // Custom Post Type Creation
@@ -234,40 +242,40 @@ function knowledge_base_custom_posts()
 }
 
 // Resources
-add_action('init', 'resources_custom_posts');
-function resources_custom_posts()
-{
-	register_post_type('resources', // Register Custom Post Type
-		array(
-		'labels' => array(
-			'name' => __('Resources', 'resources'), // Rename these to suit
-			'singular_name' => __('Resources', 'resources'),
-			'add_new' => __('Add New', 'resources'),
-			'add_new_item' => __('Add New Page', 'resources'),
-			'edit' => __('Edit', 'resources'),
-			'edit_item' => __('Edit Page', 'resources'),
-			'new_item' => __('New Page', 'resources'),
-			'view' => __('View Page', 'resources'),
-			'view_item' => __('View Page', 'resources'),
-			'search_items' => __('Search Pages', 'resources'),
-			'not_found' => __('No pages found', 'resources'),
-			'not_found_in_trash' => __('No pages found in Trash', 'resources')
-		),
-		'public' => true,
-		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-		'has_archive' => true,
-		'supports' => array(
-			'title',
-			'editor',
-			'excerpt',
-			'thumbnail',
-			'excerpt',
-			'revisions',
-			'page-attributes'
-		), // Go to Dashboard Custom HTML5 Blank post for supports
-		'can_export' => true, // Allows export in Tools > Export
-	));
-}
+// add_action('init', 'resources_custom_posts');
+// function resources_custom_posts()
+// {
+// 	register_post_type('resources', // Register Custom Post Type
+// 		array(
+// 		'labels' => array(
+// 			'name' => __('Resources', 'resources'), // Rename these to suit
+// 			'singular_name' => __('Resources', 'resources'),
+// 			'add_new' => __('Add New', 'resources'),
+// 			'add_new_item' => __('Add New Page', 'resources'),
+// 			'edit' => __('Edit', 'resources'),
+// 			'edit_item' => __('Edit Page', 'resources'),
+// 			'new_item' => __('New Page', 'resources'),
+// 			'view' => __('View Page', 'resources'),
+// 			'view_item' => __('View Page', 'resources'),
+// 			'search_items' => __('Search Pages', 'resources'),
+// 			'not_found' => __('No pages found', 'resources'),
+// 			'not_found_in_trash' => __('No pages found in Trash', 'resources')
+// 		),
+// 		'public' => true,
+// 		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+// 		'has_archive' => true,
+// 		'supports' => array(
+// 			'title',
+// 			'editor',
+// 			'excerpt',
+// 			'thumbnail',
+// 			'excerpt',
+// 			'revisions',
+// 			'page-attributes'
+// 		), // Go to Dashboard Custom HTML5 Blank post for supports
+// 		'can_export' => true, // Allows export in Tools > Export
+// 	));
+// }
 
 // Contact
 add_action('init', 'contact_custom_posts');
