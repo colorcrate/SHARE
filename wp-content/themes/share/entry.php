@@ -1,6 +1,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <header>
-<?php get_template_part('entry', 'meta'); ?>
+<?php if (get_post_type() === 'news') { ?>
+  <?php get_template_part('entry', 'meta'); ?>
+<?php } ?>
 <?php 
   // Headline
   if ( is_singular() ) {

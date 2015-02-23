@@ -8,7 +8,8 @@ function blankslate_setup() {
 	if ( ! isset( $content_width ) ) $content_width = 640;
 	register_nav_menus(array( // Using array to specify more menus if needed
 		'header-menu' => __('Header Menu', 'blankslate'), // Main Navigation
-		'footer-menu' => __('Footer Menu', 'blankslate') // Extra Navigation if needed (duplicate as many as you need!)
+		'footer-menu' => __('Footer Menu', 'blankslate'), // Extra Navigation if needed (duplicate as many as you need!)
+		'sub-footer-menu' => __('Sub-footer Menu', 'blankslate')
 	));
 }
 add_action('wp_enqueue_scripts', 'blankslate_load_scripts');
@@ -33,13 +34,22 @@ function blankslate_filter_wp_title($title) {
 }
 add_action('widgets_init', 'blankslate_widgets_init');
 function blankslate_widgets_init() {
+	// Default sidebar
 	register_sidebar( array (
 		'name' => __('Sidebar Widget Area', 'blankslate'),
-	'id' => 'primary-widget-area',
-	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	'after_widget' => "</li>",
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
+		'id' => 'primary-widget-area',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => "</li>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array (
+		'name' => __('News Sidebar Widget Area', 'blankslate'),
+		'id' => 'news-sidebar',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => "</li>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 }
 function blankslate_custom_pings($comment) {
@@ -312,3 +322,37 @@ function contact_custom_posts()
 		'can_export' => true, // Allows export in Tools > Export
 	));
 }
+
+// Child page lists
+function list_section_navigation() { 
+	global $post; 
+	$section = get_post_type($post);
+	$sectionObject =  get_post_type_object($section);
+	$sectionName = $sectionObject->labels->singular_name;
+
+	$childpages = wp_list_pages(
+		array(
+			'authors'      => '',
+			'child_of'     => 0,
+			'date_format'  => get_option('date_format'),
+			'depth'        => 0,
+			'echo'         => 1,
+			'exclude'      => '',
+			'include'      => '',
+			'link_after'   => '',
+			'link_before'  => '',
+			'post_type'    => $section,
+			'post_status'  => 'publish',
+			'show_date'    => '',
+			'sort_column'  => 'menu_order, post_title',
+		        'sort_order'   => '',
+			'title_li'     => __('<h3>' . $sectionName . '</h3>'), 
+			'walker'       => ''
+	));
+
+	if ( $childpages ) {
+		$string = '<ul>' . $childpages . '</ul>';
+	}
+	return $string;
+}
+add_shortcode('wpb_childpages', 'list_section_navigation');

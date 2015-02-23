@@ -597,7 +597,11 @@ header#page-header {
   padding-left: 2.38095%;
   padding-right: 2.38095%;
   padding-left: 70px;
-  padding-top: 40px; }
+  padding-top: 40px;
+  padding-bottom: 60px; }
+
+.entry-title {
+  margin-top: 0; }
 
 /*
 ==========================================================================
@@ -629,6 +633,21 @@ header#page-header {
     font-family: 'Arvo', serif;
     font-weight: 400;
     color: rgba(34, 36, 33, 0.5); }
+  #sidebar li.pagenav {
+    padding: 0 0 0 30px;
+    margin-bottom: 60px;
+    border-left: 1px solid rgba(34, 36, 33, 0.15); }
+    #sidebar li.pagenav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      font-family: 'Arvo', serif;
+      font-weight: 400; }
+    #sidebar li.pagenav ul ul {
+      padding-left: 15px; }
+    #sidebar li.pagenav li.current_page_item > a {
+      color: rgba(34, 36, 33, 0.75); }
 
 /*
 ==========================================================================
@@ -652,6 +671,120 @@ article.news {
 	FOOTER (scss/partials/_footer.scss)
 ==========================================================================
 */
+footer#page-footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 60px;
+  clear: both;
+  background-color: #5d5d5d;
+  color: #fff; }
+  footer#page-footer .container {
+    max-width: 1200px;
+    margin: 0 auto; }
+    @media only screen and (min-width: 769px) {
+      footer#page-footer .container {
+        padding: 0 20px; } }
+  footer#page-footer h6 {
+    margin-top: 0; }
+  footer#page-footer nav.footer-nav {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%; }
+    footer#page-footer nav.footer-nav .logo {
+      display: block;
+      width: 66px;
+      height: 49px;
+      background: url(../img/logo-share-white-132x98.png) no-repeat;
+      background-size: 100% auto; }
+    footer#page-footer nav.footer-nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 15px 0 0 15px; }
+    footer#page-footer nav.footer-nav li {
+      margin-bottom: 5px; }
+    footer#page-footer nav.footer-nav a {
+      color: #fff; }
+  footer#page-footer .mailing-list {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%; }
+  footer#page-footer .twitter-feed {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%; }
+    footer#page-footer .twitter-feed h6 {
+      padding-left: 30px;
+      background: url(../img/icon-twitter-white-51x41.png) no-repeat;
+      background-position: left center;
+      background-size: 25px 20px; }
+  footer#page-footer .social-copyright {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%; }
+    footer#page-footer .social-copyright ul.social {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: right; }
+      footer#page-footer .social-copyright ul.social li {
+        display: inline;
+        margin: 0 0 0 10px; }
+      footer#page-footer .social-copyright ul.social a {
+        color: #fff;
+        font-size: 22px;
+        text-decoration: none; }
+        footer#page-footer .social-copyright ul.social a:hover {
+          color: rgba(255, 255, 255, 0.5); }
+    footer#page-footer .social-copyright p,
+    footer#page-footer .social-copyright address {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+      line-height: 1.25;
+      text-align: right; }
+      footer#page-footer .social-copyright p a,
+      footer#page-footer .social-copyright address a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: underline; }
+        footer#page-footer .social-copyright p a:hover,
+        footer#page-footer .social-copyright address a:hover {
+          color: #fff; }
+
+.sub-footer .container {
+  max-width: 1200px;
+  margin: 0 auto; }
+  @media only screen and (min-width: 769px) {
+    .sub-footer .container {
+      padding: 0 20px; } }
+.sub-footer nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px 0;
+  text-align: center; }
+.sub-footer nav li {
+  display: inline;
+  margin: 0 15px; }
+.sub-footer nav a {
+  font-size: 12px;
+  color: rgba(34, 36, 33, 0.75); }
+  .sub-footer nav a:hover {
+    color: #009ED4; }
+
 /*
 ==========================================================================
 	GENERIC PRINT STYLES (scss/partials/_print.scss)

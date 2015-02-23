@@ -7,6 +7,7 @@
 		<title><?php wp_title(' | ', true, 'right'); ?></title>
 		
 		<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|Open+Sans:400italic,600italic,800italic,600,800,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/fonts/ss-social-circle.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 
 		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>

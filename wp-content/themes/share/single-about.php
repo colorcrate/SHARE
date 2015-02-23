@@ -3,7 +3,7 @@
 
   <header class="section-header">
     <div class="container">
-      <h1>SHARE News</h1>
+      <h1>Learn more about SHARE</h1>
     </div>
   </header>
 
@@ -14,12 +14,11 @@
         <?php get_template_part('entry'); ?>
       <?php if ( ! post_password_required() ) comments_template('', true); ?>
       <?php endwhile; endif; ?>
-      <footer class="footer">
-      <?php get_template_part('nav', 'below-single'); ?>
-      </footer>
     </div> <!-- .main-content -->
 
     <?php get_sidebar(); ?>
+    
+    <div class="clear"></div>
 
   </div> <!-- .container -->
 

@@ -9,6 +9,7 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
+    
     @include media-query('tablet-and-larger') {
       padding: 0 20px;
     }
@@ -29,4 +30,9 @@
   @include span(65%);
   padding-left: 70px;
   padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.entry-title {
+  margin-top: 0;
 }
