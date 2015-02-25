@@ -659,8 +659,14 @@ header#page-header {
       padding-left: 15px; }
     #sidebar li.pagenav li.current_page_item > a {
       color: rgba(34, 36, 33, 0.75); }
+    #sidebar li.pagenav.knowledge-base-items ul {
+      line-height: 1.2; }
     #sidebar li.pagenav.knowledge-base-items ul li {
-      margin: 5px 0; }
+      margin: 8px 0; }
+    #sidebar li.pagenav.knowledge-base-items a {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px; }
 
 /*
 ==========================================================================

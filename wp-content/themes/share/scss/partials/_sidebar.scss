@@ -58,8 +58,16 @@
     }
 
     &.knowledge-base-items {
+      ul {
+        line-height: 1.2;
+      }
       ul li {
-        margin: 5px 0;
+        margin: 8px 0;
+      }
+
+      a {
+        @include font-family-open-sans-semi-bold;
+        font-size: $default;
       }
     }
   }
