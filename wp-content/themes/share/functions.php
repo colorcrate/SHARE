@@ -236,7 +236,7 @@ function knowledge_base_custom_posts()
 			'not_found_in_trash' => __('No pages found in Trash', 'knowledge-base')
 		),
 		'public' => true,
-		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+		'hierarchical' => false, // Allows your posts to behave like Hierarchy Pages
 		'has_archive' => true,
 		'supports' => array(
 			'title',
@@ -323,7 +323,9 @@ function contact_custom_posts()
 	));
 }
 
-// Child page lists
+// ------------------------------------------------------
+// Function to echo list of sectional pages 
+// ------------------------------------------------------
 function list_section_navigation() { 
 	global $post; 
 	$section = get_post_type($post);
@@ -356,3 +358,37 @@ function list_section_navigation() {
 	return $string;
 }
 add_shortcode('wpb_childpages', 'list_section_navigation');
+
+
+// ------------------------------------------------------
+// Knowledge Base custom taxonomy
+// ------------------------------------------------------
+
+function kb_custom_taxonomy_init() {
+  // Add new "Locations" taxonomy to Posts
+  register_taxonomy('section', 'knowledge-base', array(
+    // Hierarchical taxonomy (like categories)
+    'hierarchical' => true,
+    // This array of options controls the labels displayed in the WordPress Admin UI
+    'labels' => array(
+      'name' => _x( 'Sections', 'taxonomy general name' ),
+      'singular_name' => _x( 'Section', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Sections' ),
+      'all_items' => __( 'All Sections' ),
+      'parent_item' => __( 'Parent Section' ),
+      'parent_item_colon' => __( 'Parent Section:' ),
+      'edit_item' => __( 'Edit Section' ),
+      'update_item' => __( 'Update Section' ),
+      'add_new_item' => __( 'Add New Section' ),
+      'new_item_name' => __( 'New Section Name' ),
+      'menu_name' => __( 'Sections' ),
+    ),
+    // Control the slugs used for this taxonomy
+    'rewrite' => array(
+      'slug' => 'section', // This controls the base slug that will display before each term
+      'with_front' => false, // Don't display the category base before "/locations/"
+      'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+    ),
+  ));
+}
+add_action( 'init', 'kb_custom_taxonomy_init', 0 );

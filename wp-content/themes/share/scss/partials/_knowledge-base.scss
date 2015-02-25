@@ -1,0 +1,42 @@
+/*
+==========================================================================
+  KNOWLEDGE BASE STYLES (scss/partials/_knowledge-base.scss)
+==========================================================================
+*/
+.knowledge-base {
+  
+  .section {
+    @include span(50%);
+    padding: 0;
+    margin-bottom: 20px;
+
+    &:nth-child(odd) {
+      padding-right: 40px;
+    }
+    &:nth-child(even) {
+      padding-left: 40px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        // padding-left: 20px;
+        // text-indent: -20px;
+        margin: 8px 0;
+      }
+
+      a {
+        @include font-family-open-sans-semi-bold;
+        font-size: $medium;
+        line-height: $medium;
+      }
+    }
+  }
+}

@@ -56,5 +56,11 @@
         color: $black-75;
       }
     }
+
+    &.knowledge-base-items {
+      ul li {
+        margin: 5px 0;
+      }
+    }
   }
 }

@@ -599,6 +599,17 @@ header#page-header {
   padding-left: 70px;
   padding-top: 40px;
   padding-bottom: 60px; }
+  .main-content.full-width {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%;
+    padding-left: 70px;
+    padding-top: 40px;
+    padding-bottom: 60px; }
 
 .entry-title {
   margin-top: 0; }
@@ -648,6 +659,8 @@ header#page-header {
       padding-left: 15px; }
     #sidebar li.pagenav li.current_page_item > a {
       color: rgba(34, 36, 33, 0.75); }
+    #sidebar li.pagenav.knowledge-base-items ul li {
+      margin: 5px 0; }
 
 /*
 ==========================================================================
@@ -665,6 +678,39 @@ article.news {
     font-size: 12px; }
   article.news .entry-summary p {
     margin-bottom: 0; }
+
+/*
+==========================================================================
+  KNOWLEDGE BASE STYLES (scss/partials/_knowledge-base.scss)
+==========================================================================
+*/
+.knowledge-base .section {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 2.38095%;
+  padding-right: 2.38095%;
+  padding: 0;
+  margin-bottom: 20px; }
+  .knowledge-base .section:nth-child(odd) {
+    padding-right: 40px; }
+  .knowledge-base .section:nth-child(even) {
+    padding-left: 40px; }
+  .knowledge-base .section h2 {
+    margin-bottom: 0; }
+  .knowledge-base .section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .knowledge-base .section ul li {
+      margin: 8px 0; }
+    .knowledge-base .section ul a {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 18px; }
 
 /*
 ==========================================================================

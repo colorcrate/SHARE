@@ -3,9 +3,39 @@
     <ul class="xoxo">
     
     <?php 
-      // News Sidebar
+      // News sidebar
       if (get_post_type() === 'news') {
         dynamic_sidebar('news-sidebar');
+      }
+      // Knowledge Base sidebar
+      if (get_post_type() === 'knowledge-base') {
+        // Build subnavigation based on the section this knowledge domain is in
+        $currentPageID = $post->ID;
+        $terms = wp_get_post_terms($post->ID, 'section');
+
+        foreach( $terms as $term ) : 
+          
+          echo '<li class="pagenav knowledge-base-items">';
+          echo '<h3>' . $term->name . '</h3>';
+          echo '<ul>';
+
+          $posts = new WP_Query( "taxonomy=section&term=$term->slug" );
+
+          if( $posts->have_posts() ): while( $posts->have_posts() ) : $posts->the_post();
+              if (get_the_ID() === $currentPageID) { // Mark current item as active
+                echo '<li class="current_page_item">';
+              }
+              else {
+                echo '<li>';
+              }
+              echo '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '" rel="bookmark">' . get_the_title() . '</a>';
+              echo '</li>';
+          endwhile; endif;
+
+          echo '</ul>';
+          echo '</li>';
+
+        endforeach;
       }
       else {
         // Create subnav for this section, if subnav exists
