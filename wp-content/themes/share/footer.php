@@ -11,23 +11,26 @@
 					<!-- Column 2: Mailing list -->
 					<div class="mailing-list">
 						<h6>Sign up for updates</h6>
+						<p>Formstack code goes here.</p>
 					</div>
 
 					<!-- Column 3: Twitter feed -->
 					<div class="twitter-feed">
 						<h6>@SHARE_research</h6>
+						<p>Twitter feed goes here.</p>
 					</div>
 
 					<!-- Column 4: Social/copyright info -->
 					<div class="social-copyright">
+						<?php // Grab social media links from Site-wide Options page
+						if(get_field('social_media_links', 'option')): ?>
 						<ul class="social ss-icon">
-							<li><a href="<?php bloginfo('rss_url'); ?>">rss</a></li>
-							<li><a href="http://www.twitter.com/SHARE_research" target="_blank">twitter</a></li>
-							<li><a href="https://www.facebook.com/SHARE.research" target="_blank">facebook</a></li>
-							<li><a href="#" target="_blank">linkedin</a></li>
-							<li><a href="#" target="_blank">google+</a></li>
-							<li><a href="#" target="_blank">pinterest</a></li>
+							<?php while(has_sub_field('social_media_links', 'option')): ?>
+							<li><a href="<?php the_sub_field('url'); ?>" target="_blank"><?php the_sub_field('icon'); ?></a></li>
+							<?php endwhile; ?>
 						</ul>
+						<?php endif; ?>
+						
 						<p>All content is &copy; Copyright 2015 SHARE and available under a <a href="http://creativecommons.org/licenses/by/4.0/deed.en_US" target="_blank">CC-BY 4.0 license</a>.</p>
 						<address>
 							Association of Research Libraries<br />

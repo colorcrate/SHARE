@@ -8,7 +8,7 @@
         dynamic_sidebar('news-sidebar');
       }
       // Knowledge Base sidebar
-      if (get_post_type() === 'knowledge-base') {
+      else if (get_post_type() === 'knowledge-base') {
         // Build subnavigation based on the section this knowledge domain is in
         $currentPageID = $post->ID;
         $terms = wp_get_post_terms($post->ID, 'section');
@@ -37,6 +37,23 @@
           echo '</li>';
 
         endforeach;
+      }
+      // Contact sidebar
+      else if (get_post_type() === 'contact') {
+        echo '<li class="social-media">';
+        echo '<h3>Get In Touch</h3>'; ?>
+        <address>
+          <?php the_field('address', 'option'); ?>
+        </address>
+      <?php // Grab social media links from Site-wide Options page
+            if(get_field('social_media_links', 'option')): ?>
+            <ul class="social">
+              <?php while(has_sub_field('social_media_links', 'option')): ?>
+              <li><a href="<?php the_sub_field('url'); ?>" target="_blank"><span class="ss-icon"><?php the_sub_field('icon'); ?></span> <?php the_sub_field('title'); ?></a></li>
+              <?php endwhile; ?>
+            </ul>
+            <?php endif;
+        echo '</li>';
       }
       else {
         // Create subnav for this section, if subnav exists

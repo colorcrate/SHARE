@@ -64,25 +64,48 @@ header#page-header {
         }
 
         
+        // Secondary level
         &:hover { // Show sub nav
           > ul {
             display: block;
-            position: absolute;
-            top: 20px;
           }
         }
-        
-        ul { // Secondary level
+        &.menu-item-has-children {
+          &:before {
+            content:"\25BC";
+            font-size: $tiny - 3;
+            position: relative;
+            left: 8px;
+            top: -2px;
+            color: $black-45;
+          }
+        }
+        // Secondary level layout
+        ul {
+          height: auto;
+          width: 200px;
+          padding-top: 10px;
+          padding-bottom: 5px;
           display: none;
+          
+          position: absolute;
+          top: 20px;
+          left: 11px;
+
+          background: $white;
+          border-left: 1px solid $black-15;
 
           li {
-
+            a {
+              display: block;
+              padding: 5px 9px;
+            }
           }
         }
       }
     }
 
-    // Visual styles
+    // Default visual styles
     a {
       color: $black-75;
       text-decoration: none;
@@ -93,8 +116,9 @@ header#page-header {
       }
     }
 
-    li.current-menu-item {
-      a {
+    li.current-menu-item, 
+    li.current-menu-ancestor {
+      > a {
         color: $blue;
         &:hover {
           color: $blue-50;

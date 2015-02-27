@@ -4,6 +4,11 @@ function blankslate_setup() {
 	load_theme_textdomain('blankslate', get_template_directory() . '/languages');
 	add_theme_support('automatic-feed-links');
 	add_theme_support('post-thumbnails');
+	add_image_size('large', 589, '', true); // Large Thumbnail
+	add_image_size('medium', 440, '', true); // Medium Thumbnail
+	add_image_size('small', 120, '', true); // Small Thumbnail
+	add_image_size('news-thumbnail', 230, 170, true); // News thumbnail
+
 	global $content_width;
 	if ( ! isset( $content_width ) ) $content_width = 640;
 	register_nav_menus(array( // Using array to specify more menus if needed
@@ -81,6 +86,11 @@ function new_excerpt_more( $more ) {
 	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('...continue reading.', 'your-text-domain') . '</a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
+// Custom excerpt length
+function custom_excerpt_length( $length ) {
+	return 40;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 // ------------------------------------------------------
@@ -392,3 +402,31 @@ function kb_custom_taxonomy_init() {
   ));
 }
 add_action( 'init', 'kb_custom_taxonomy_init', 0 );
+
+
+// ------------------------------------------------------
+// Create "Site-wide Options" options page
+// ------------------------------------------------------
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site-wide Options',
+		'menu_title'	=> 'Site-wide Options',
+		'menu_slug' 	=> 'site-wide-options',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));	
+}
+
+// ------------------------------------------------------
+// Echo post thumbnail
+// ------------------------------------------------------
+function the_post_thumbnail_caption() {
+  global $post;
+
+  $thumbnail_id    = get_post_thumbnail_id($post->ID);
+  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+  if ($thumbnail_image && isset($thumbnail_image[0])) {
+    echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
+  }
+}
