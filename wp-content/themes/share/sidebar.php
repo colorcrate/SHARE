@@ -32,6 +32,7 @@
               echo '</li>';
           endwhile; endif;
 
+          echo '<li><a href="' . get_bloginfo('url') . '/knowledge-base/" title="SHARE Knowledge Base">&laquo; SHARE Knowledge Base home</a></li>';
           echo '</ul>';
           echo '</li>';
 

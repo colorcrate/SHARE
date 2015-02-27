@@ -8,9 +8,11 @@
 @import "partials/typography"; // Universal font styles and @font-face declarations
 @import "partials/header"; // Everything that falls within header#header area (plus #img-holder)
 @import "partials/content"; // Everything that falls within section#content area
+@import "partials/forms"; // Generic styles for forms
 @import "partials/sidebar"; // Everything that falls within section#sidebar area
 @import "partials/news"; // News section styles
 @import "partials/knowledge-base"; // Knowledge Base section styles
+@import "partials/contact"; // Contact section styles
 @import "partials/footer"; // Everything that falls within footer#footer
 
 // Vendor

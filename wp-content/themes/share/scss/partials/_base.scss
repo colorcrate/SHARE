@@ -23,7 +23,7 @@ textarea {
 html, body {
 }
 body {
-
+	@include font-family-open-sans-regular;
 }
 a {
 	color: $blue;
