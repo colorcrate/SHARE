@@ -17,7 +17,12 @@
 }
 
 .section-header {
-  background: $blue;
+  background-color: $blue;
+  background-image: url(../img/background-banner-2392x140.jpg);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center top;
+
 
   h1 {
     padding: 15px 0 15px 70px;

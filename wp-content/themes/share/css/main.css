@@ -432,6 +432,41 @@ input[type=text], textarea, select {
 textarea {
   resize: vertical; }
 
+.button {
+  display: block;
+  margin: 10px 0;
+  color: #fff;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center; }
+  .button.primary {
+    padding: 30px 10px;
+    background: #E71DA7;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800; }
+    .button.primary:hover {
+      background: #222421;
+      color: #fff; }
+  .button.secondary {
+    padding: 15px 10px;
+    background: #009ED4;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; }
+    .button.secondary:hover {
+      background: #222421;
+      color: #fff; }
+  .button.tertiary {
+    padding: 15px 10px;
+    background: rgba(34, 36, 33, 0.35);
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; }
+    .button.tertiary:hover {
+      background: #222421;
+      color: #fff; }
+
 .fill {
   width: 100%;
   height: 100%;
@@ -530,6 +565,7 @@ header#page-header {
     width: 88px;
     height: 65px; }
     header#page-header #branding h1 {
+      margin: 0;
       width: 100%;
       height: 100%;
       text-indent: -999999px;
@@ -586,7 +622,11 @@ header#page-header {
       padding: 0 20px; } }
 
 .section-header {
-  background: #009ED4; }
+  background-color: #009ED4;
+  background-image: url(../img/background-banner-2392x140.jpg);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center top; }
   .section-header h1 {
     padding: 15px 0 15px 70px;
     color: #fff;
@@ -772,6 +812,91 @@ label {
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
       font-size: 15px; }
+
+/*
+==========================================================================
+  HOME STYLES (scss/partials/_home.scss)
+==========================================================================
+*/
+.page-template-template-landing-php #content .container {
+  padding-left: 70px;
+  padding-right: 70px; }
+.page-template-template-landing-php .banner {
+  background-color: rgba(0, 158, 212, 0.1);
+  background-image: url(../img/background-banner-2392x694.jpg);
+  background-size: cover;
+  background-repeat: none;
+  background-position: center top;
+  color: #222421;
+  padding: 75px 0; }
+  .page-template-template-landing-php .banner .text {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%;
+    padding-left: 0; }
+    .page-template-template-landing-php .banner .text p {
+      font-family: 'Arvo', serif;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 27.5px; }
+  .page-template-template-landing-php .banner .buttons {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 40%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%;
+    padding-right: 0;
+    float: right; }
+.page-template-template-landing-php footer#page-footer {
+  margin-top: 0; }
+
+.standard-text-block {
+  padding: 80px 0;
+  text-align: center; }
+  .standard-text-block:last-of-type {
+    padding-bottom: 0; }
+  .standard-text-block h2 {
+    margin-top: 0;
+    padding: 0 22.5%;
+    color: #009ED4; }
+  .standard-text-block .text {
+    padding: 0 22.5%;
+    text-align: left; }
+  .standard-text-block .image {
+    width: 80%;
+    height: auto; }
+
+.blue-callout-block {
+  background: #009ED4;
+  padding: 80px 70px;
+  color: #fff; }
+  .blue-callout-block .description {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%; }
+    .blue-callout-block .description h2 {
+      margin-top: 0; }
+  .blue-callout-block .button {
+    margin-top: 40px; }
+  .blue-callout-block .image {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 40%;
+    float: left;
+    padding-left: 2.38095%;
+    padding-right: 2.38095%;
+    float: right; }
 
 /*
 ==========================================================================

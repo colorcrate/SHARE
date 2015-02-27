@@ -102,6 +102,55 @@ textarea {
 	resize: vertical;
 }
 
+.button {
+	display: block;
+	margin: 10px 0;
+
+	color: $white;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	text-align: center;
+
+	&.primary {
+		padding: 30px 10px;
+		
+		background: $magenta;
+		font-size: $large;
+		@include font-family-open-sans-extra-bold;
+
+		&:hover {
+			background: $black;
+			color: $white;
+		}
+	}
+
+	&.secondary {
+		padding: 15px 10px;
+
+		background: $blue;
+		font-size: $medium;
+		@include font-family-open-sans-semi-bold;
+		
+		&:hover {
+			background: $black;
+			color: $white;
+		}
+	}
+
+	&.tertiary {
+		padding: 15px 10px;
+
+		background: $black-35;
+		font-size: $medium;
+		@include font-family-open-sans-semi-bold;
+		
+		&:hover {
+			background: $black;
+			color: $white;
+		}
+	}
+}
+
 #wrapper {
 	
 }
