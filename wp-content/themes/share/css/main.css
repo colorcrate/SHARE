@@ -557,46 +557,96 @@ header#page-header {
   @media only screen and (min-width: 769px) {
     header#page-header {
       padding: 30px 20px; } }
+  @media only screen and (max-width: 768px) {
+    header#page-header {
+      padding: 15px 20px; } }
   header#page-header .container {
     max-width: 1200px;
     margin: 0 auto;
     position: relative; }
   header#page-header #branding {
     width: 88px;
-    height: 65px; }
+    height: 65px;
+    position: relative;
+    top: 0;
+    -webkit-transition: top 250ms ease-in-out;
+    -moz-transition: top 250ms ease-in-out;
+    -ms-transition: top 250ms ease-in-out;
+    -o-transition: top 250ms ease-in-out;
+    transition: top 250ms ease-in-out; }
+    header#page-header #branding.hidden {
+      top: -100px; }
+    @media only screen and (max-width: 768px) {
+      header#page-header #branding {
+        width: 55px;
+        height: 40px; } }
     header#page-header #branding h1 {
       margin: 0;
       width: 100%;
       height: 100%;
       text-indent: -999999px;
       background-image: url(../img/logo-share-177x131.png);
+      background-repeat: no-repeat;
       background-size: 88px auto; }
+      @media only screen and (max-width: 768px) {
+        header#page-header #branding h1 {
+          background-size: 55px auto; } }
   header#page-header #main-nav {
     display: inline;
     position: absolute;
     right: 0;
     top: 40%; }
+    @media only screen and (max-width: 768px) {
+      header#page-header #main-nav {
+        display: block;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        z-index: 3;
+        background: rgba(255, 255, 255, 0.95);
+        border-left: 1px solid rgba(34, 36, 33, 0.15);
+        -webkit-transition: left 250ms ease-in-out;
+        -moz-transition: left 250ms ease-in-out;
+        -ms-transition: left 250ms ease-in-out;
+        -o-transition: left 250ms ease-in-out;
+        transition: left 250ms ease-in-out; }
+        header#page-header #main-nav.open {
+          left: 62px; } }
     header#page-header #main-nav ul {
       margin: 0;
       padding: 0;
       list-style-type: none; }
     header#page-header #main-nav ul#menu-main-navigation > li {
       display: inline-block; }
+      @media only screen and (max-width: 768px) {
+        header#page-header #main-nav ul#menu-main-navigation > li {
+          display: block;
+          padding: 8px 0; } }
       header#page-header #main-nav ul#menu-main-navigation > li > a {
         margin: 0 5px;
         padding: 0 10px; }
+        @media only screen and (max-width: 768px) {
+          header#page-header #main-nav ul#menu-main-navigation > li > a {
+            margin: 0;
+            padding: 0 20px; } }
       header#page-header #main-nav ul#menu-main-navigation > li:last-of-type a {
         margin-right: 0;
         padding-right: 0; }
       header#page-header #main-nav ul#menu-main-navigation > li:hover > ul {
         display: block; }
-      header#page-header #main-nav ul#menu-main-navigation > li.menu-item-has-children:before {
-        content: "\25BC";
-        font-size: 7px;
-        position: relative;
-        left: 8px;
-        top: -2px;
-        color: rgba(34, 36, 33, 0.45); }
+        @media only screen and (max-width: 768px) {
+          header#page-header #main-nav ul#menu-main-navigation > li:hover > ul {
+            display: none; } }
+      @media only screen and (min-width: 769px) {
+        header#page-header #main-nav ul#menu-main-navigation > li.menu-item-has-children:before {
+          content: "\25BC";
+          font-size: 7px;
+          position: relative;
+          left: 8px;
+          top: -2px;
+          color: rgba(34, 36, 33, 0.45); } }
       header#page-header #main-nav ul#menu-main-navigation > li ul {
         height: auto;
         width: 200px;
@@ -619,6 +669,11 @@ header#page-header {
       -ms-transition: color 250ms ease-in-out;
       -o-transition: color 250ms ease-in-out;
       transition: color 250ms ease-in-out; }
+      @media only screen and (max-width: 768px) {
+        header#page-header #main-nav a {
+          font-size: 22px;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 800; } }
       header#page-header #main-nav a:hover {
         color: #009ED4; }
     header#page-header #main-nav li.current-menu-item > a,
@@ -627,6 +682,34 @@ header#page-header {
       header#page-header #main-nav li.current-menu-item > a:hover,
       header#page-header #main-nav li.current-menu-ancestor > a:hover {
         color: rgba(0, 158, 212, 0.5); }
+    @media only screen and (max-width: 768px) {
+      header#page-header #main-nav a.handle {
+        display: block;
+        width: 47px;
+        height: 47px;
+        position: absolute;
+        left: -55px;
+        top: 5px;
+        background-image: url(../img/nav-hamburger-75x75.png);
+        background-color: rgba(255, 255, 255, 0.95);
+        background-size: 37px auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer; } }
+    header#page-header #main-nav.open a.handle {
+      background: url(../img/nav-x-75x75.png);
+      background-color: rgba(255, 255, 255, 0.95);
+      background-size: 37px auto;
+      background-position: center center;
+      background-repeat: no-repeat; }
+    @media only screen and (max-width: 768px) {
+      header#page-header #main-nav.open a.fill {
+        position: fixed;
+        width: 62px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        cursor: pointer; } }
 
 /*
 ==========================================================================
@@ -650,6 +733,13 @@ header#page-header {
     padding: 15px 0 15px 70px;
     color: #fff;
     font-size: 22px; }
+    @media only screen and (max-width: 768px) {
+      .section-header h1 {
+        margin: 0;
+        padding: 10px 30px;
+        font-size: 18px;
+        font-family: 'Arvo', serif;
+        font-weight: 400; } }
 
 .main-content {
   -moz-box-sizing: border-box;
@@ -662,6 +752,18 @@ header#page-header {
   padding-left: 70px;
   padding-top: 40px;
   padding-bottom: 60px; }
+  @media only screen and (max-width: 768px) {
+    .main-content {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      float: left;
+      padding-left: 2.38095%;
+      padding-right: 2.38095%;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 25px; } }
   .main-content.full-width {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -797,6 +899,16 @@ label {
   padding-right: 2.38095%;
   padding-right: 0;
   padding-top: 40px; }
+  @media only screen and (max-width: 768px) {
+    #sidebar {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      float: left;
+      padding-left: 2.38095%;
+      padding-right: 2.38095%;
+      padding: 0 30px; } }
   #sidebar .widget-area > ul {
     list-style-type: none;
     margin: 0;
@@ -805,6 +917,11 @@ label {
     padding: 0 0 0 30px;
     margin-bottom: 60px;
     border-left: 1px solid rgba(34, 36, 33, 0.15); }
+    @media only screen and (max-width: 768px) {
+      #sidebar .widget-area .widget-container {
+        padding: 30px 0;
+        border-top: 1px solid rgba(34, 36, 33, 0.15);
+        border-left: 0; } }
   #sidebar .widget_categories ul {
     list-style-type: none;
     padding: 0;
@@ -816,6 +933,11 @@ label {
     padding: 0 0 0 30px;
     margin-bottom: 60px;
     border-left: 1px solid rgba(34, 36, 33, 0.15); }
+    @media only screen and (max-width: 768px) {
+      #sidebar li.pagenav {
+        padding: 30px 0;
+        border-top: 1px solid rgba(34, 36, 33, 0.15);
+        border-left: 0; } }
     #sidebar li.pagenav ul {
       list-style-type: none;
       margin: 0;
@@ -838,6 +960,11 @@ label {
   #sidebar li.social-media {
     padding: 0 0 0 30px;
     border-left: 1px solid rgba(34, 36, 33, 0.15); }
+    @media only screen and (max-width: 768px) {
+      #sidebar li.social-media {
+        padding: 30px 0;
+        border-top: 1px solid rgba(34, 36, 33, 0.15);
+        border-left: 0; } }
     #sidebar li.social-media ul {
       margin: 30px 0 0 0;
       padding: 0;

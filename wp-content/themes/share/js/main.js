@@ -105,7 +105,9 @@ var cs = (function($) {
 			/*
 				USER INTERACTION
 			*/
-			// Click events and whatnot.
+			$('#main-nav .handle, #main-nav .fill').click(function(){
+				userInput.toggleMainNavigation();
+			});
 			
 		};
 
@@ -184,13 +186,20 @@ var cs = (function($) {
 	*/
 	var userInput = (function() {
 
-		var example = function() { // Matches the height of various elements to other elements in ways that are impossible with CSS alone
-			
+		var toggleMainNavigation = function() { // Toggles the main navigation open and closed @ mobile dimensions
+			if (!$('#main-nav').hasClass('open')) { // Main nav is closed
+				$('#main-nav').addClass('open');
+				$('#branding').addClass('hidden');
+			}
+			else { // Main nav is open
+				$('#main-nav').removeClass('open');
+				$('#branding').removeClass('hidden');
+			}
 		};
 
 		// public
 		return {
-			example: example
+			toggleMainNavigation: toggleMainNavigation
 		};
 
 	})(); // var uiMod = (function() {

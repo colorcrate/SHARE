@@ -32,8 +32,9 @@
 					</section>
 					
 					<nav id="main-nav" role="navigation">
-						<a class="handle icon"></a>
 						<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+						<a class="handle icon"></a>
+						<a class="fill"></a>
 					</nav>
 
 				</div> <!-- .container -->
