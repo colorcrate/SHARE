@@ -93,7 +93,7 @@ header#page-header {
 
         @include media-query('mobile') {
           display: block;
-          padding: 8px 0;
+          padding: 10px 0;
         }
 
         > a {
@@ -169,7 +169,7 @@ header#page-header {
 
       @include media-query(mobile) {
         font-size: $large;
-        @include font-family-open-sans-extra-bold;
+        @include font-family-open-sans-regular;
       }
 
       &:hover {

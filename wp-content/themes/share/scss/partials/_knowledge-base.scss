@@ -4,17 +4,57 @@
 ==========================================================================
 */
 .knowledge-base {
+
+  .search {
+    margin: 0 0 20px;
+    border: 1px solid $black-30;
+
+    @include media-query(mobile) {
+      margin-top: 20px;
+    }
+
+    input[type=text] {
+      padding-left: 40px;
+      width: calc(100% - 50px);
+      height: 36px;
+      float: left;
+
+      border: 0;
+      background-image: url(../img/icon-magnifying-glass-gray-40x40.png);
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      background-size: 20px auto;
+    }
+
+    input[type=submit] {
+      text-indent: -99999px;
+      width: 50px;
+      height: 36px;
+      border-left: 1px solid $black-30;
+      background: url(../img/icon-arrow-search-27x41.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 13px auto;
+    }
+  }
   
   .section {
     @include span(50%);
     padding: 0;
     margin-bottom: 20px;
 
-    &:nth-child(odd) {
-      padding-right: 40px;
+    @include media-query(mobile) {
+      @include span(100%);
+      padding: 0;
     }
-    &:nth-child(even) {
-      padding-left: 40px;
+
+    @include media-query(tablet-and-larger) {
+      &:nth-child(even) {
+        padding-right: 40px;
+      }
+      &:nth-child(odd) {
+        padding-left: 40px;
+      }
     }
 
     h2 {

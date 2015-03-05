@@ -10,6 +10,20 @@
 //
 //	FONT FAMILIES
 //
+@font-face {
+  font-family: 'twitter-icons';
+  src:url('../fonts/twitter-icons.eot?-1swkie');
+  src:url('../fonts/twitter-icons.eot?#iefix-1swkie') format('embedded-opentype'),
+    url('../fonts/twitter-icons.woff?-1swkie') format('woff'),
+    url('../fonts/twitter-icons.ttf?-1swkie') format('truetype'),
+    url('../fonts/twitter-icons.svg?-1swkie#twitter-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font-family-twitter-icons {
+	font-family: 'twitter-icons';
+}
 @mixin font-family-arvo-regular {
 	font-family: 'Arvo', serif;
  	font-weight: 400;

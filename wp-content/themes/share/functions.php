@@ -341,6 +341,9 @@ function list_section_navigation() {
 	$section = get_post_type($post);
 	$sectionObject =  get_post_type_object($section);
 	$sectionName = $sectionObject->labels->singular_name;
+	if ($sectionName === 'Page') {
+		$sectionName = 'Pages'; // Make this headline make more sense
+	}
 
 	$childpages = wp_list_pages(
 		array(
@@ -430,3 +433,12 @@ function the_post_thumbnail_caption() {
     echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
   }
 }
+
+// ------------------------------------------------------
+// Allow Jetpack's Related Posts to use News posts
+// ------------------------------------------------------
+function allow_my_post_types($allowed_post_types) {
+    $allowed_post_types[] = 'news';
+    return $allowed_post_types;
+}
+add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );

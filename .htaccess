@@ -6,3 +6,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /share/index.php [L]
 </IfModule>
+
+
+# REDIRECTS
+# Redirect 301 ^/share/about$ http://dev.colorcrate.com/share/about/about-share/

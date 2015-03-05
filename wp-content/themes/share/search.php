@@ -1,24 +1,32 @@
 <?php get_header(); ?>
 <section id="content" role="main">
-<?php if ( have_posts() ) : ?>
-<header class="header">
-<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'blankslate' ), get_search_query() ); ?></h1>
-</header>
-<?php while ( have_posts() ) : the_post(); ?>
-<?php get_template_part('entry'); ?>
-<?php endwhile; ?>
-<?php get_template_part('nav', 'below'); ?>
-<?php else : ?>
-<article id="post-0" class="post no-results not-found">
-<header class="header">
-<h2 class="entry-title"><?php _e( 'Nothing Found', 'blankslate' ); ?></h2>
-</header>
-<section class="entry-content">
-<p><?php _e( 'Sorry, nothing matched your search. Please try again.', 'blankslate' ); ?></p>
-<?php get_search_form(); ?>
+  
+  <header class="section-header">
+    <div class="container">
+      <h1>The SHARE Knowledge Base</h1>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="main-content">
+      <header class="header category-header">
+        <h2 class="entry-title"><?php printf( __( 'Search Results for: %s', 'blankslate' ), get_search_query() ); ?></h2>
+        <hr />
+      </header>
+
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php get_template_part('entry'); ?>
+      <?php endwhile; 
+            else : 
+            _e( 'Sorry, nothing matched your search. Please go back and try again.', 'blankslate' );
+            endif; ?>
+      <?php get_template_part('nav', 'below'); ?>
+    </div> <!-- .main-content -->
+    
+    <?php get_sidebar(); ?>
+  </div> <!-- .container -->
+  
+  <div class="clearfix"></div>
 </section>
-</article>
-<?php endif; ?>
-</section>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -5,10 +5,14 @@
     <?php 
       // News sidebar
       if (get_post_type() === 'news') {
+        if (is_single()) {
+          echo 'related posts';
+          echo do_shortcode('[jetpack-related-posts]');
+        }
         dynamic_sidebar('news-sidebar');
       }
       // Knowledge Base sidebar
-      else if (get_post_type() === 'knowledge-base') {
+      else if (get_post_type() === 'knowledge-base' && !is_search()) {
         // Build subnavigation based on the section this knowledge domain is in
         $currentPageID = $post->ID;
         $terms = wp_get_post_terms($post->ID, 'section');
@@ -55,10 +59,17 @@
             <?php endif;
         echo '</li>';
       }
+      // Search results (from Knowledge Base) sidebar
+      else if (is_search()) {
+        echo '<li class="pagenav knowledge-base-items">';
+        echo '<h3>Knowledge Base</h3>';
+        echo '<a href="' . get_bloginfo('url') . '/knowledge-base/" title="SHARE Knowledge Base">&laquo; SHARE Knowledge Base home</a>';
+        echo '</li>';
+
+      }
       else {
         // Create subnav for this section, if subnav exists
         echo list_section_navigation();
-        // dynamic_sidebar('primary-widget-area'); 
       }
     ?>
 

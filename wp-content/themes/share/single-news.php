@@ -3,7 +3,7 @@
 
   <header class="section-header">
     <div class="container">
-      <h1>SHARE News</h1>
+      <a href="<?php echo get_bloginfo('url'); ?>/news/"><h1>SHARE News</h1></a>
     </div>
   </header>
   
@@ -35,4 +35,8 @@
   </div> <!-- .container -->
 
 </section>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ed2944f1c6caccb" async="async"></script>
+
 <?php get_footer(); ?>

@@ -11,13 +11,13 @@
 					<!-- Column 2: Mailing list -->
 					<div class="mailing-list">
 						<h6>Sign up for updates</h6>
-						<p>Formstack code goes here.</p>
+						<script type="text/javascript" src="http://arl.formstack.com/forms/js.php?1772252-EuxYverMiG-v3"></script><noscript><a href="http://arl.formstack.com/forms/stay_informed_signup__copy" title="Online Form">Online Form - SHARE Update signup form</a></noscript>
 					</div>
 
 					<!-- Column 3: Twitter feed -->
 					<div class="twitter-feed">
-						<h6>@SHARE_research</h6>
-						<p>Twitter feed goes here.</p>
+						<h6><a href="http://twitter.com/SHARE_research" target="_blank" title="SHARE on Twitter">@SHARE_research</a></h6>
+						<div class="tweet"></div>
 					</div>
 
 					<!-- Column 4: Social/copyright info -->
@@ -59,7 +59,7 @@
 		<?php wp_footer(); ?>
 		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 		<script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-		<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/vendor/twitter/jquery.tweet.js"></script> -->
+		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/twitter/jquery.tweet.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/main.js"></script>
 
 	</body>

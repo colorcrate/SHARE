@@ -33,6 +33,11 @@ article.news {
     .excerpt {
       float: left;
       width: calc(100% - 135px);
+
+      @include media-query(mobile) {
+        float: none;
+        width: auto;
+      }
     }
     p {
       margin: 0;

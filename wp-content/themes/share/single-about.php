@@ -3,7 +3,7 @@
 
   <header class="section-header">
     <div class="container">
-      <h1>Learn more about SHARE</h1>
+      <a href="<?php echo get_bloginfo('url'); ?>/about/about-share/"><h1>Learn more about SHARE</h1></a>
     </div>
   </header>
 

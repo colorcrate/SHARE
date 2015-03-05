@@ -7,8 +7,13 @@
 
   #content {
     .container {
-      padding-left: 70px;
       padding-right: 70px;
+      padding-left: 70px;
+
+      @include media-query(mobile) {
+        padding-right: 30px;
+        padding-left: 30px;
+      }
     }
   }
 
@@ -25,6 +30,11 @@
       @include span(50%);
       padding-left: 0;
 
+      @include media-query(mobile) {
+        @include span(100%);
+        padding: 0;
+      }
+
       p {
         @include font-family-arvo-regular;
         font-size: $large;
@@ -35,6 +45,11 @@
       @include span(40%);
       padding-right: 0;
       float: right;
+
+      @include media-query(mobile) {
+        @include span(100%);
+        padding: 0;
+      }
     }
   }
 
@@ -55,11 +70,21 @@
     margin-top: 0;
     padding: 0 22.5%;
     color: $blue;
+
+    @include media-query(mobile) {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
   }
 
   .text {
     padding: 0 22.5%;
     text-align: left;
+
+    @include media-query(mobile) {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
   }
 
   .image {
@@ -74,8 +99,17 @@
 
   color: $white;
 
+  @include media-query(mobile) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
   .description { 
     @include span(50%);
+
+    @include media-query(mobile) {
+      @include span(100%);
+    }
 
     h2 {
       margin-top: 0;
@@ -89,5 +123,10 @@
   .image {
     @include span(40%);
     float: right;
+
+    @include media-query(mobile) {
+      @include span(100%);
+      margin-top: 50px;
+    }
   }
 }

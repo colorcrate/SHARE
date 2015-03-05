@@ -10,6 +10,10 @@
   <div class="container knowledge-base">
     
     <div class="main-content full-width">
+
+      <div class="search">
+        <?php get_search_form(true); ?>
+      </div>
       
       <?php 
         // Sort posts into sections

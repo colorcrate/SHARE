@@ -1,24 +1,25 @@
-				<?php get_header(); ?>
+<?php get_header(); ?>
+<section id="content" role="main">
 
-				<section id="content" role="main">
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						
-						<header class="header">
-							<h1 class="entry-title"><?php the_title(); ?></h1> <?php edit_post_link(); ?>
-						</header>
-						
-						<section class="entry-content">
-						<?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
-						<?php the_content(); ?>
-						<div class="entry-links"><?php wp_link_pages(); ?></div>
-						</section>
-					
-					</article>
-					
-					<?php if ( ! post_password_required() ) comments_template('', true); ?>
-					<?php endwhile; endif; ?>
-				</section>
+  <header class="section-header">
+    <div class="container">
+      <a href="<?php echo get_bloginfo('url'); ?>/about/about-share/"><h1><?php echo get_the_title(); ?></h1></a>
+    </div>
+  </header>
 
-				<?php get_sidebar(); ?>
-				<?php get_footer(); ?>
+  <div class="container">
+    
+    <div class="main-content">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <?php get_template_part('entry'); ?>
+      <?php endwhile; endif; ?>
+    </div> <!-- .main-content -->
+
+    <?php get_sidebar(); ?>
+    
+    <div class="clear"></div>
+
+  </div> <!-- .container -->
+
+</section>
+<?php get_footer(); ?>

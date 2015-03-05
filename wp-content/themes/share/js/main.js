@@ -1,8 +1,8 @@
 jQuery(document).ready(function($) {
-   cs.utility.init();
+   share.utility.init();
 
-   $(window).resize(function(){ cs.utility.resize(); });
-   $(window).scroll(function(){ cs.utility.onScroll(); });
+   $(window).resize(function(){ share.utility.resize(); });
+   $(window).scroll(function(){ share.utility.onScroll(); });
 });
 
 
@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 =============================================================================
 */
 
-var cs = (function($) {
+var share = (function($) {
 
 	/*
 		Utility
@@ -77,23 +77,24 @@ var cs = (function($) {
 				}
 			}
 
-			// $("div.twitter.single .tweet").tweet({ // Load a single tweet into any single tweet holder.
-			// 	modpath: 'http://ripeserver.com/build/eatcs.com/wp-content/themes/cs-master/js/vendor/twitter/',
-			// 	join_text: "auto",
-			// 	username: "eatcs",
-			// 	avatar_size: 0,
-			// 	count: 1,
-			// 	auto_join_text_default: " we said, ",
-			// 	auto_join_text_ed: " we ",
-			// 	auto_join_text_ing: " we were ",
-			// 	auto_join_text_reply: " we replied ",
-			// 	auto_join_text_url: " we were checking out ",
-			// 	loading_text: "Loading Tweets",
-			// 	template: "{text}<div class='clear'></div>{time} <div class='actions'>{reply_action} {retweet_action} {favorite_action}</div><div class='clear'></div>"
-			// });
+			$("div.twitter-feed .tweet").tweet({ // Load a single tweet into any single tweet holder.
+				modpath: 'http://dev.colorcrate.com/share/wp-content/themes/share/js/vendor/twitter/',
+				join_text: "auto",
+				username: "SHARE_research",
+				avatar_size: 0,
+				count: 1,
+				auto_join_text_default: " SHARE said, ",
+				auto_join_text_ed: " SHARE ",
+				auto_join_text_ing: " SHARE was ",
+				auto_join_text_reply: " SHARE replied ",
+				auto_join_text_url: " SHARE was checking out ",
+				loading_text: "Loading Tweets",
+				template: "{text}<div class='clear'></div>{time} <div class='actions'>{reply_action} {retweet_action} {favorite_action}</div><div class='clear'></div>"
+			});
 
-			// FUNCTIONS
-			// uiMod.example();
+			// INIT FUNCTIONS
+			uiMod.twitterWidgetClassAddition(); // Add a class to the Twitter widget in sidebars so it can be hidden @ mobile dimensions
+			uiMod.wrapVideoEmbeds(); // Wrap embedded videos in a div so we can correctly resize them
 
 			
 			// REPEATING FUNCTIONS
@@ -157,6 +158,8 @@ var cs = (function($) {
 			responsiveState: responsiveState
 		}
 	})();
+
+
 	/* 
 		UI Modifications 
 
@@ -166,13 +169,29 @@ var cs = (function($) {
 
 	var uiMod = (function() {
 
-		var heightMatcher = function() { // Matches the height of various elements to other elements in ways that are impossible with CSS alone
-			
+		var twitterWidgetClassAddition = function() { // Add a class to the Twitter widget in sidebars so it can be hidden @ mobile dimensions
+			$('.widget-title:contains("@SHARE_research")').closest('.widget-container').addClass('mobile-hide');
+		};
+		
+		var wrapVideoEmbeds = function() { // Wrap embedded videos in a div so we can correctly resize them
+			$('iframe').each(function(){
+				// 1. Get the src
+				if ($(this).attr('src')) {
+					var src = $(this).attr('src');
+				}
+				else { return; } // iframe has no src, it's something other than a video. Kill the function
+				
+				// 2. If the src matches Youtube or Vimeo, wrap a div around the iframe
+				if (src.match(/(vimeo)/g) || src.match(/(youtube)/g)) {
+					$(this).wrap('<div class="video-container"></div>');
+				}
+			});
 		};
 
 		// public
 		return {
-			heightMatcher: heightMatcher
+			twitterWidgetClassAddition: twitterWidgetClassAddition,
+			wrapVideoEmbeds: wrapVideoEmbeds
 		};
 	})(); // var uiMod = (function() {
 
@@ -212,4 +231,4 @@ var cs = (function($) {
 		uiMod: uiMod,
 		userInput: userInput
 	};
-})(jQuery); // var cs = (function() {
+})(jQuery); // var share = (function() {
