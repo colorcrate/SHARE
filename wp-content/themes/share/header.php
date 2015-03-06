@@ -12,6 +12,17 @@
 
 		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/conditionizr.min.js"></script>
+
+		<!-- Icons -->
+		<link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/favicon.ico">
+		<link rel="apple-touch-icon" href="<?php bloginfo('template_url'); ?>/img/touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?php bloginfo('template_url'); ?>/img/touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?php bloginfo('template_url'); ?>/img/touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?php bloginfo('template_url'); ?>/img/touch-icon-152x152.png">
+
+		<!-- Open Graph sharing stuff -->
+		
+
 		<?php wp_head(); ?>
 	</head>
 	

@@ -442,3 +442,35 @@ function allow_my_post_types($allowed_post_types) {
     return $allowed_post_types;
 }
 add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );
+
+
+// ------------------------------------------------------
+// User SHARE logo for og-image if no featured image is
+// present, or featured image is too small.
+// ------------------------------------------------------
+function jeherve_custom_image( $media, $post_id, $args ) {
+    if ( $media ) {
+        return $media;
+    } else {
+        $permalink = get_permalink( $post_id );
+        $url = apply_filters( 'jetpack_photon_url', get_bloginfo('template_url') . '/img/og-logo-200x200.png' );
+     
+        return array( array(
+            'type'  => 'image',
+            'from'  => 'custom_fallback',
+            'src'   => esc_url( $url ),
+            'href'  => $permalink,
+        ) );
+    }
+}
+add_filter( 'jetpack_images_get_images', 'jeherve_custom_image', 10, 3 );
+
+
+// ------------------------------------------------------
+// Change Jetpack's twitter card to SHARE's twitter handle
+// ------------------------------------------------------
+function tweakjp_custom_twitter_site( $og_tags ) {
+	$og_tags['twitter:site'] = '@SHARE_research';
+	return $og_tags;
+}
+add_filter( 'jetpack_open_graph_tags', 'tweakjp_custom_twitter_site', 11 );

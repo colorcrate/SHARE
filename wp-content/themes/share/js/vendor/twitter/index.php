@@ -24,16 +24,16 @@ class ezTweet {
 	/*************************************** config ***************************************/
 	// API KEY TIED TO IAN'S TWITTER ACCOUNT (@colorcrate)
    // Your Twitter App Consumer Key
-	private $consumer_key = 'C8pBohOeZQkxXeuembxwiQ';
+	private $consumer_key = 'uyxWO6ZfAHPg5FsAV4jKxzUTZ';
 
 	// Your Twitter App Consumer Secret
-	private $consumer_secret = '4POzA3j5ocTZHmzX4OVESDD7pFekWrf185N0FXSc';
+	private $consumer_secret = 'WrHkjxMlWcnDZZXj8RDyPOHH63SQ9QCrXIChj7MYnsUnEBB6Bq';
 
 	// Your Twitter App Access Token
-	private $user_token = '26055253-CwvpvimUDojFRxAMJ3XMlXmMy6dJnaWnTmN9O5DHi';
+	private $user_token = '26055253-OlXFawxaknp5BbELzhwxZ5fFxsPbHvhjjACqs6AgZ';
 
 	// Your Twitter App Access Token Secret
-	private $user_secret = 'wcr3QHHEBiaNC161wUQqeJmJPaNIw6e8AIzhKnj4';
+	private $user_secret = 'uog0VTRSb6IuSdS71bRBVvAotYvyfvxqFRgMKqXJMg74Y';
 
 	// Path to tmhOAuth libraries
 	private $lib = './lib/';

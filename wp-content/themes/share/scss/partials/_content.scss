@@ -101,3 +101,19 @@
 .tag-header {
   margin-bottom: 30px;
 }
+
+// Pagination
+.nav-previous, .nav-next {
+  @include span(50%);
+
+  @include font-family-arvo-regular;
+  font-size: $medium;
+}
+.nav-previous {
+  padding-left: 0;
+}
+.nav-next {
+  padding-right: 0;
+  float: right;
+  text-align: right;
+}

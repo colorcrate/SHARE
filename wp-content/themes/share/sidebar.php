@@ -6,8 +6,9 @@
       // News sidebar
       if (get_post_type() === 'news') {
         if (is_single()) {
-          echo 'related posts';
-          echo do_shortcode('[jetpack-related-posts]');
+          echo '<li class="pagenav knowledge-base-items">';
+          echo '<h3>Related Posts</h3>';
+          echo '</li>';
         }
         dynamic_sidebar('news-sidebar');
       }
