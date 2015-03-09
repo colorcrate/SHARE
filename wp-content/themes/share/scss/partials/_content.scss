@@ -117,3 +117,32 @@
   float: right;
   text-align: right;
 }
+
+// Media alignment
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+  clear: both;
+}
+
+.alignleft {
+  margin: 0 15px 15px 0;
+  float: left;
+  clear: both;
+
+  @include media-query(mobile) {
+    max-width: 45%;
+    height: auto;
+  }
+}
+
+.alignright {
+  margin: 0 0 15px 15px;
+  float: right;
+  clear: both;
+
+  @include media-query(mobile) {
+    max-width: 45%;
+    height: auto;
+  }
+}

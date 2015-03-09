@@ -859,6 +859,29 @@ header#page-header {
   float: right;
   text-align: right; }
 
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+  clear: both; }
+
+.alignleft {
+  margin: 0 15px 15px 0;
+  float: left;
+  clear: both; }
+  @media only screen and (max-width: 768px) {
+    .alignleft {
+      max-width: 45%;
+      height: auto; } }
+
+.alignright {
+  margin: 0 0 15px 15px;
+  float: right;
+  clear: both; }
+  @media only screen and (max-width: 768px) {
+    .alignright {
+      max-width: 45%;
+      height: auto; } }
+
 /*
 ==========================================================================
 	FORMS (scss/partials/_forms.scss)
