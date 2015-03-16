@@ -3,25 +3,24 @@
 
   <header class="section-header">
     <div class="container">
-      <h1 class="entry-title">SHARE News</h1>
+      <a href="<?php echo get_bloginfo('url'); ?>/kb/"><h1>The SHARE Knowledge Base</h1></a>
     </div>
   </header>
-  
+
   <div class="container">
     
     <div class="main-content">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <?php get_template_part('entry'); ?>
+      <?php if ( ! post_password_required() ) comments_template('', true); ?>
       <?php endwhile; endif; ?>
-      
-      <?php get_template_part('nav', 'below'); ?>
-    </div>
+    </div> <!-- .main-content -->
 
     <?php get_sidebar(); ?>
+    
+    <div class="clear"></div>
 
   </div> <!-- .container -->
 
-  <div class="clear"></div>
-</section> <!-- #content -->
-
+</section>
 <?php get_footer(); ?>

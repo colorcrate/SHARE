@@ -156,6 +156,7 @@ function projects_custom_posts()
 		'public' => true,
 		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
 		'has_archive' => true,
+		'capability_type' => 'page',
 		'supports' => array(
 			'title',
 			'editor',
@@ -170,80 +171,118 @@ function projects_custom_posts()
 }
 
 // News & Updates
-add_action('init', 'news_custom_posts'); // Add our HTML5 Blank Custom Post Type
-function news_custom_posts()
-{
-	// register_taxonomy_for_object_type('category', 'spotlight'); // Register Taxonomies for Category
-	// register_taxonomy_for_object_type('post_tag', 'spotlight');
-	register_post_type('news', // Register Custom Post Type
-		array(
-		'labels' => array(
-			'name' => __('News', 'news'), // Rename these to suit
-			'singular_name' => __('News', 'news'),
-			'add_new' => __('Add New', 'news'),
-			'add_new_item' => __('Add New Post', 'news'),
-			'edit' => __('Edit', 'news'),
-			'edit_item' => __('Edit Post', 'news'),
-			'new_item' => __('New Post', 'news'),
-			'view' => __('View Post', 'news'),
-			'view_item' => __('View Post', 'news'),
-			'search_items' => __('Search Posts', 'news'),
-			'not_found' => __('No posts found', 'news'),
-			'not_found_in_trash' => __('No posts found in Trash', 'news')
-		),
-		'public' => true,
-		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-		'has_archive' => true,
-		'supports' => array(
-			'title',
-			'editor',
-			'excerpt',
-			'thumbnail',
-			'excerpt',
-			'revisions',
-			'comments',
-		), // Go to Dashboard Custom HTML5 Blank post for supports
-		'can_export' => true, // Allows export in Tools > Export
-		'taxonomies' => array(
- 			'post_tag',
- 			'category'
- 		) // Add Category and Post Tags support
-	));
-	// flush_rewrite_rules();
-}
-// Include News custom post types in category pages
-add_filter('pre_get_posts', 'news_query_post_type');
-function news_query_post_type($query) {
-  if(is_category() || is_tag()) {
-    $post_type = get_query_var('post_type');
-	if($post_type)
-	    $post_type = $post_type;
-	else
-	    $post_type = array('post','news');
-    $query->set('post_type',$post_type);
-	return $query;
-    }
-}
+// REMOVED 2015.03.16 at EFC's request
+// add_action('init', 'news_custom_posts'); // Add our HTML5 Blank Custom Post Type
+// function news_custom_posts()
+// {
+// 	// register_taxonomy_for_object_type('category', 'spotlight'); // Register Taxonomies for Category
+// 	// register_taxonomy_for_object_type('post_tag', 'spotlight');
+// 	register_post_type('news', // Register Custom Post Type
+// 		array(
+// 		'labels' => array(
+// 			'name' => __('News', 'news'), // Rename these to suit
+// 			'singular_name' => __('News', 'news'),
+// 			'add_new' => __('Add New', 'news'),
+// 			'add_new_item' => __('Add New Post', 'news'),
+// 			'edit' => __('Edit', 'news'),
+// 			'edit_item' => __('Edit Post', 'news'),
+// 			'new_item' => __('New Post', 'news'),
+// 			'view' => __('View Post', 'news'),
+// 			'view_item' => __('View Post', 'news'),
+// 			'search_items' => __('Search Posts', 'news'),
+// 			'not_found' => __('No posts found', 'news'),
+// 			'not_found_in_trash' => __('No posts found in Trash', 'news')
+// 		),
+// 		'public' => true,
+// 		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+// 		'has_archive' => true,
+// 		'supports' => array(
+// 			'title',
+// 			'editor',
+// 			'excerpt',
+// 			'thumbnail',
+// 			'excerpt',
+// 			'revisions',
+// 			'comments',
+// 		), // Go to Dashboard Custom HTML5 Blank post for supports
+// 		'can_export' => true, // Allows export in Tools > Export
+// 		'taxonomies' => array(
+//  			'post_tag',
+//  			'category'
+//  		) // Add Category and Post Tags support
+// 	));
+// 	// flush_rewrite_rules();
+// }
+// // Include News custom post types in category pages
+// add_filter('pre_get_posts', 'news_query_post_type');
+// function news_query_post_type($query) {
+//   if(is_category() || is_tag()) {
+//     $post_type = get_query_var('post_type');
+// 	if($post_type)
+// 	    $post_type = $post_type;
+// 	else
+// 	    $post_type = array('post','news');
+//     $query->set('post_type',$post_type);
+// 	return $query;
+//     }
+// }
 
 // Knowledge Base
-add_action('init', 'knowledge_base_custom_posts');
-function knowledge_base_custom_posts()
+// CHANGED TO 'kb' on 2015.03.16 at EFC's request
+// add_action('init', 'knowledge_base_custom_posts');
+// function knowledge_base_custom_posts()
+// {
+// 	register_post_type('knowledge-base', // Register Custom Post Type
+// 		array(
+// 		'labels' => array(
+// 			'name' => __('Knowledge Base', 'knowledge-base'), // Rename these to suit
+// 			'singular_name' => __('Knowledge Base', 'knowledge-base'),
+// 			'add_new' => __('Add New', 'knowledge-base'),
+// 			'add_new_item' => __('Add New Page', 'knowledge-base'),
+// 			'edit' => __('Edit', 'knowledge-base'),
+// 			'edit_item' => __('Edit Page', 'knowledge-base'),
+// 			'new_item' => __('New Page', 'knowledge-base'),
+// 			'view' => __('View Page', 'knowledge-base'),
+// 			'view_item' => __('View Page', 'knowledge-base'),
+// 			'search_items' => __('Search Pages', 'knowledge-base'),
+// 			'not_found' => __('No pages found', 'knowledge-base'),
+// 			'not_found_in_trash' => __('No pages found in Trash', 'knowledge-base')
+// 		),
+// 		'public' => true,
+// 		'hierarchical' => false, // Allows your posts to behave like Hierarchy Pages
+// 		'has_archive' => true,
+// 		'supports' => array(
+// 			'title',
+// 			'editor',
+// 			'excerpt',
+// 			'thumbnail',
+// 			'excerpt',
+// 			'revisions',
+// 			'page-attributes'
+// 		), // Go to Dashboard Custom HTML5 Blank post for supports
+// 		'can_export' => true, // Allows export in Tools > Export
+// 	));
+// }
+
+// Knowledge Base
+add_action('init', 'kb_custom_post_type');
+function kb_custom_post_type()
 {
-	register_post_type('knowledge-base', // Register Custom Post Type
+	register_post_type('kb', // Register Custom Post Type
 		array(
 		'labels' => array(
-			'name' => __('Knowledge Base', 'knowledge-base'), // Rename these to suit
-			'singular_name' => __('Knowledge Base', 'knowledge-base'),
-			'add_new' => __('Add New', 'knowledge-base'),
-			'add_new_item' => __('Add New Page', 'knowledge-base'),
-			'edit' => __('Edit', 'knowledge-base'),
-			'edit_item' => __('Edit Page', 'knowledge-base'),
-			'new_item' => __('New Page', 'knowledge-base'),
-			'view' => __('View Page', 'knowledge-base'),
-			'view_item' => __('View Page', 'knowledge-base'),
-			'search_items' => __('Search Pages', 'knowledge-base'),
-			'not_found' => __('No pages found', 'knowledge-base'),
-			'not_found_in_trash' => __('No pages found in Trash', 'knowledge-base')
+			'name' => __('Knowledge Base', 'kb'), // Rename these to suit
+			'singular_name' => __('Knowledge Base', 'kb'),
+			'add_new' => __('Add New', 'kb'),
+			'add_new_item' => __('Add New Page', 'kb'),
+			'edit' => __('Edit', 'kb'),
+			'edit_item' => __('Edit Page', 'kb'),
+			'new_item' => __('New Page', 'kb'),
+			'view' => __('View Page', 'kb'),
+			'view_item' => __('View Page', 'kb'),
+			'search_items' => __('Search Pages', 'kb'),
+			'not_found' => __('No pages found', 'kb'),
+			'not_found_in_trash' => __('No pages found in Trash', 'kb')
 		),
 		'public' => true,
 		'hierarchical' => false, // Allows your posts to behave like Hierarchy Pages
@@ -259,43 +298,8 @@ function knowledge_base_custom_posts()
 		), // Go to Dashboard Custom HTML5 Blank post for supports
 		'can_export' => true, // Allows export in Tools > Export
 	));
+	// flush_rewrite_rules();
 }
-
-// Resources
-// add_action('init', 'resources_custom_posts');
-// function resources_custom_posts()
-// {
-// 	register_post_type('resources', // Register Custom Post Type
-// 		array(
-// 		'labels' => array(
-// 			'name' => __('Resources', 'resources'), // Rename these to suit
-// 			'singular_name' => __('Resources', 'resources'),
-// 			'add_new' => __('Add New', 'resources'),
-// 			'add_new_item' => __('Add New Page', 'resources'),
-// 			'edit' => __('Edit', 'resources'),
-// 			'edit_item' => __('Edit Page', 'resources'),
-// 			'new_item' => __('New Page', 'resources'),
-// 			'view' => __('View Page', 'resources'),
-// 			'view_item' => __('View Page', 'resources'),
-// 			'search_items' => __('Search Pages', 'resources'),
-// 			'not_found' => __('No pages found', 'resources'),
-// 			'not_found_in_trash' => __('No pages found in Trash', 'resources')
-// 		),
-// 		'public' => true,
-// 		'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-// 		'has_archive' => true,
-// 		'supports' => array(
-// 			'title',
-// 			'editor',
-// 			'excerpt',
-// 			'thumbnail',
-// 			'excerpt',
-// 			'revisions',
-// 			'page-attributes'
-// 		), // Go to Dashboard Custom HTML5 Blank post for supports
-// 		'can_export' => true, // Allows export in Tools > Export
-// 	));
-// }
 
 // Contact
 add_action('init', 'contact_custom_posts');
@@ -474,3 +478,86 @@ function tweakjp_custom_twitter_site( $og_tags ) {
 	return $og_tags;
 }
 add_filter( 'jetpack_open_graph_tags', 'tweakjp_custom_twitter_site', 11 );
+
+// ------------------------------------------------------
+// Get excerpts of a custom length
+// ------------------------------------------------------
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt);
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  } 
+  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+  return $excerpt;
+}
+
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content);
+  } else {
+    $content = implode(" ",$content);
+  } 
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
+
+// ------------------------------------------------------
+// Show related posts based on similar tags
+// ------------------------------------------------------
+function show_related_posts($thePost) {
+	$tags = wp_get_post_tags($thePost->ID);
+
+	// Post has tags, look for related posts
+	if ($tags) {  
+		
+		$tag_ids = array();  
+		
+		foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;  
+	
+		// Construct a wp_query to find related posts by tags
+		$args=array(  
+		'tag__in' => $tag_ids,  
+		'post__not_in' => array($post->ID),  
+		'posts_per_page'=> 2, // How many related posts should be displayed?
+		'ignore_sticky_posts'=> true
+		);
+		$my_query = new wp_query( $args );  
+		
+		$posts = '<ul class="related-posts">';
+		while( $my_query->have_posts() ) {  
+			$my_query->the_post();
+			$posts .= '<li class="post">';
+			$posts .= '<span class="date">' . get_the_date('F j, Y') . '</span>';
+			$posts .= '<a class="post-title" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
+			$posts .= '<p class="excerpt">' . excerpt(20) . ' <a href="' . get_the_permalink() . '">... read more.</a></p>';
+			$posts .= '</li>';
+		}
+		$posts .= '</ul>';
+		
+		wp_reset_query();
+
+		$related_posts = array(
+			'has_posts' => true,
+			'posts' => $posts,
+			'tags' => $tags
+		);
+	}
+
+	// Post has no tags, return false
+	else {
+		$related_posts = array(
+			'has_posts' => false,
+			'posts' => '',
+			'tags' => $tags
+		);
+	}
+
+	return $related_posts;
+};

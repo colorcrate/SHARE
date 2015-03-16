@@ -1030,6 +1030,8 @@ label {
     font-family: 'Arvo', serif;
     font-weight: 400;
     color: rgba(34, 36, 33, 0.5); }
+  #sidebar .widget_categories li.current-cat > a {
+    color: rgba(34, 36, 33, 0.75); }
   #sidebar li.pagenav {
     padding: 0 0 0 30px;
     margin-bottom: 60px;
@@ -1079,6 +1081,20 @@ label {
           font-size: 22px;
           position: relative;
           top: 5px; }
+  #sidebar ul.related-posts li {
+    margin-bottom: 30px; }
+  #sidebar ul.related-posts .date {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    display: block; }
+  #sidebar ul.related-posts .post-title {
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+    font-size: 18px; }
+  #sidebar ul.related-posts .excerpt {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; }
 
 /*
 ==========================================================================
@@ -1225,40 +1241,40 @@ label {
   NEWS STYLES (scss/partials/_news.scss)
 ==========================================================================
 */
-article.news {
+article.post {
   padding: 0 0 40px 0;
   margin: 0 0 40px 0;
   border-bottom: 1px solid rgba(34, 36, 33, 0.15); }
-  article.news header h2 {
+  article.post header h2 {
     font-size: 28px;
     margin: .25em 0 .5em; }
-  article.news header .entry-meta {
+  article.post header .entry-meta {
     font-size: 12px; }
-  article.news .entry-summary .thumbnail {
+  article.post .entry-summary .thumbnail {
     width: 115px;
     float: left;
     margin-right: 20px; }
-    article.news .entry-summary .thumbnail img {
+    article.post .entry-summary .thumbnail img {
       width: 100%;
       height: auto; }
-  article.news .entry-summary .excerpt {
+  article.post .entry-summary .excerpt {
     float: left;
     width: calc(100% - 135px); }
     @media only screen and (max-width: 768px) {
-      article.news .entry-summary .excerpt {
+      article.post .entry-summary .excerpt {
         float: none;
         width: auto; } }
-  article.news .entry-summary p {
+  article.post .entry-summary p {
     margin: 0; }
-  article.news .entry-content .thumbnail {
+  article.post .entry-content .thumbnail {
     width: 115px;
     float: left;
     margin-right: 20px;
     margin-bottom: 10px; }
-    article.news .entry-content .thumbnail img {
+    article.post .entry-content .thumbnail img {
       width: 100%;
       height: auto; }
-  article.news .entry-content .caption {
+  article.post .entry-content .caption {
     color: rgba(34, 36, 33, 0.6);
     font-size: 12px;
     text-align: center; }

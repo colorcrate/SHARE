@@ -47,6 +47,12 @@
       @include font-family-arvo-regular;
       color: $black-50;
     }
+
+    li.current-cat {
+      > a {
+        color: $black-75;
+      }
+    }
   }
 
   // Section navigation
@@ -127,6 +133,25 @@
           top: 5px;
         }
       }
+    }
+  }
+
+  // Related posts
+  ul.related-posts {
+    li {
+      margin-bottom: 30px;
+    }
+    .date {
+      @include font-family-open-sans-regular;
+      font-size: $small;
+      display: block;
+    }
+    .post-title {
+      @include font-family-arvo-regular;
+      font-size: $medium;
+    }
+    .excerpt {
+      @include font-family-open-sans-regular;
     }
   }
 }

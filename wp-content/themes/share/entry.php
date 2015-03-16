@@ -4,6 +4,15 @@
   <?php get_template_part('entry', 'meta'); ?>
 <?php } ?>
 <?php 
+  // Entry meta
+  if (is_singular('post') || is_home()) {
+    echo '<div class="entry-meta">';
+    the_category( ' | ', $parents, $post->ID );
+    echo ' | ';
+    the_date('F j, Y');
+    echo '</div>';
+  }
+
   // Headline
   if ( is_singular() ) {
     echo '<h2 class="entry-title">';
@@ -15,6 +24,6 @@
     echo '</h2>';
   } ?>
 </header>
-<?php get_template_part('entry', (is_archive() || is_search() ? 'summary' : 'content')); ?>
+<?php get_template_part('entry', (is_home() || is_archive() || is_search() ? 'summary' : 'content')); ?>
 <?php if (!is_search()) get_template_part('entry-footer'); ?>
 </article>
