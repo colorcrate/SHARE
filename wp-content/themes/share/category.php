@@ -21,7 +21,7 @@ wp_reset_query(); // Now reset the query we just made so the rest of this page w
   </header>
 
   <div class="container">
-    <div class="main-content">
+    <div id="main-content" class="main-content">
       <header class="header category-header">
         <h2 class="entry-title"><?php _e( 'Topic: ', 'blankslate' ); ?><?php single_cat_title(); ?></h2>
         <hr />

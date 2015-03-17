@@ -118,7 +118,8 @@ textarea {
 		font-size: $large;
 		@include font-family-open-sans-extra-bold;
 
-		&:hover {
+		&:hover, 
+		&:focus {
 			background: $black;
 			color: $white;
 		}
@@ -131,7 +132,8 @@ textarea {
 		font-size: $medium;
 		@include font-family-open-sans-semi-bold;
 		
-		&:hover {
+		&:hover,
+		&:focus {
 			background: $black;
 			color: $white;
 		}
@@ -144,7 +146,8 @@ textarea {
 		font-size: $medium;
 		@include font-family-open-sans-semi-bold;
 		
-		&:hover {
+		&:hover,
+		&:focus {
 			background: $black;
 			color: $white;
 		}

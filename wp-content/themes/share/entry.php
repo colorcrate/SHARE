@@ -1,16 +1,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <header>
-<?php if (get_post_type() === 'news') { ?>
-  <?php get_template_part('entry', 'meta'); ?>
-<?php } ?>
 <?php 
   // Entry meta
   if (is_singular('post') || is_home()) {
-    echo '<div class="entry-meta">';
-    the_category( ' | ', $parents, $post->ID );
-    echo ' | ';
-    the_date('F j, Y');
-    echo '</div>';
+    get_template_part('entry', 'meta');
   }
 
   // Headline

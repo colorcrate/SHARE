@@ -22,7 +22,7 @@ wp_reset_query(); // Now reset the query we just made so the rest of this page w
   </header>
 
   <div class="container">
-    <div class="main-content">
+    <div id="main-content" class="main-content">
       <header class="header tag-header">
         <h2 class="entry-title"><?php _e( 'Tag: ', 'blankslate' ); ?><span><?php single_tag_title(); ?></span></h2>
         <hr />

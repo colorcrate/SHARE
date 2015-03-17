@@ -39,7 +39,7 @@
 						<h2><?php the_sub_field('headline'); ?></h2>
 						<?php if (get_sub_field('image')) {
 							$image = get_sub_field('image'); ?>
-						<img class="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" />
+						<img class="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 						<?php } ?>
 						<div class="text">
 							<?php the_sub_field('text_content'); ?>
@@ -63,7 +63,7 @@
 
 						<?php if (get_sub_field('image')) {
 							$image = get_sub_field('image'); ?>
-						<img class="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['title']; ?>" />
+						<img class="image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
 						<?php } ?>
 						<div class="clearfix"></div>
 					</div> <!-- .blue-callout-block -->

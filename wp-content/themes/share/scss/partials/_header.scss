@@ -227,3 +227,32 @@ header#page-header {
     }
   }
 }
+
+// Skip to main content button
+.skip {
+  height: 45px;
+  display: block;
+  padding: 10px;
+  position: fixed;
+  z-index: 999999;
+  top: -50px; 
+  right: 0;
+  left: 0;
+  
+  background: $black;
+  color: $white;
+  @include font-family-arvo-regular;
+  font-size: $medium;
+  text-align: center;
+
+  @include transition(all, 250ms);
+
+  &:hover {
+    background: $black-95;
+    color: $white;
+  }
+
+  &:focus {
+    top: 0px;
+  }
+}

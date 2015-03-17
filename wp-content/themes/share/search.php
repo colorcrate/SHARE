@@ -9,7 +9,7 @@
 
   <div class="container">
 
-    <div class="main-content">
+    <div id="main-content" class="main-content">
       <header class="header category-header">
         <h2 class="entry-title"><?php printf( __( 'Search Results for: %s', 'blankslate' ), get_search_query() ); ?></h2>
         <hr />

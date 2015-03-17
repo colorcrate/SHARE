@@ -31,6 +31,8 @@
 	$slug = get_post( $post )->post_name;
 	body_class($slug);
 	?>>
+
+		<a href="#main-content" class="skip" tabindex="0">Skip to main content</a>
 		
 		<div id="wrapper" class="hfeed grid-container">
 		

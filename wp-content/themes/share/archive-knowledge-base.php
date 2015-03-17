@@ -9,7 +9,7 @@
 
   <div class="container knowledge-base">
     
-    <div class="main-content full-width">
+    <div id="main-content" class="main-content full-width">
 
       <div class="search">
         <?php get_search_form(true); ?>

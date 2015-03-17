@@ -451,7 +451,7 @@ textarea {
     font-size: 22px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800; }
-    .button.primary:hover {
+    .button.primary:hover, .button.primary:focus {
       background: #222421;
       color: #fff; }
   .button.secondary {
@@ -460,7 +460,7 @@ textarea {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600; }
-    .button.secondary:hover {
+    .button.secondary:hover, .button.secondary:focus {
       background: #222421;
       color: #fff; }
   .button.tertiary {
@@ -469,7 +469,7 @@ textarea {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600; }
-    .button.tertiary:hover {
+    .button.tertiary:hover, .button.tertiary:focus {
       background: #222421;
       color: #fff; }
 
@@ -740,6 +740,32 @@ header#page-header {
         bottom: 0;
         left: 0;
         cursor: pointer; } }
+
+.skip {
+  height: 45px;
+  display: block;
+  padding: 10px;
+  position: fixed;
+  z-index: 999999;
+  top: -50px;
+  right: 0;
+  left: 0;
+  background: #222421;
+  color: #fff;
+  font-family: 'Arvo', serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out; }
+  .skip:hover {
+    background: rgba(34, 36, 33, 0.95);
+    color: #fff; }
+  .skip:focus {
+    top: 0px; }
 
 /*
 ==========================================================================
