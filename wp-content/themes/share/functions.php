@@ -41,16 +41,40 @@ add_action('widgets_init', 'blankslate_widgets_init');
 function blankslate_widgets_init() {
 	// Default sidebar
 	register_sidebar( array (
-		'name' => __('Sidebar Widget Area', 'blankslate'),
-		'id' => 'primary-widget-area',
+		'name' => __('About SHARE sidebar', 'blankslate'),
+		'id' => 'about-share-sidebar',
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => "</li>",
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array (
-		'name' => __('News Sidebar Widget Area', 'blankslate'),
+		'name' => __('Projects sidebar', 'blankslate'),
+		'id' => 'projects-sidebar',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => "</li>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array (
+		'name' => __('News sidebar', 'blankslate'),
 		'id' => 'news-sidebar',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => "</li>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array (
+		'name' => __('Knowledge Base sidebar', 'blankslate'),
+		'id' => 'kb-sidebar',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => "</li>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array (
+		'name' => __('Contact sidebar', 'blankslate'),
+		'id' => 'knowledge-base-sidebar',
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => "</li>",
 		'before_title' => '<h3 class="widget-title">',
@@ -508,57 +532,3 @@ function content($limit) {
   $content = str_replace(']]>', ']]&gt;', $content);
   return $content;
 }
-
-// ------------------------------------------------------
-// Show related posts based on similar tags
-// ------------------------------------------------------
-function show_related_posts($thePost) {
-	$tags = wp_get_post_tags($thePost->ID);
-
-	// Post has tags, look for related posts
-	if ($tags) {  
-		
-		$tag_ids = array();  
-		
-		foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;  
-	
-		// Construct a wp_query to find related posts by tags
-		$args=array(  
-		'tag__in' => $tag_ids,  
-		'post__not_in' => array($post->ID),  
-		'posts_per_page'=> 2, // How many related posts should be displayed?
-		'ignore_sticky_posts'=> true
-		);
-		$my_query = new wp_query( $args );  
-		
-		$posts = '<ul class="related-posts">';
-		while( $my_query->have_posts() ) {  
-			$my_query->the_post();
-			$posts .= '<li class="post">';
-			$posts .= '<span class="date">' . get_the_date('F j, Y') . '</span>';
-			$posts .= '<a class="post-title" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
-			$posts .= '<p class="excerpt">' . excerpt(20) . ' <a href="' . get_the_permalink() . '">... read more.</a></p>';
-			$posts .= '</li>';
-		}
-		$posts .= '</ul>';
-		
-		wp_reset_query();
-
-		$related_posts = array(
-			'has_posts' => true,
-			'posts' => $posts,
-			'tags' => $tags
-		);
-	}
-
-	// Post has no tags, return false
-	else {
-		$related_posts = array(
-			'has_posts' => false,
-			'posts' => '',
-			'tags' => $tags
-		);
-	}
-
-	return $related_posts;
-};
