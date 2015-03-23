@@ -16,8 +16,14 @@
 
 					<!-- Column 3: Twitter feed -->
 					<div class="twitter-feed">
-						<h6><a href="http://twitter.com/SHARE_research" target="_blank" title="SHARE on Twitter">@SHARE_research</a></h6>
+						<?php if (get_field('twitter_replacement', 'option')) { ?>
+						<div class="twitter-replacement">
+							<?php the_field('twitter_replacement', 'option'); ?>
+						</div> <!-- .twitter-replacement -->
+						<?php } else { ?>
+						<h6 class="twitter-logo"><a href="http://twitter.com/SHARE_research" target="_blank" title="SHARE on Twitter">@SHARE_research</a></h6>
 						<div class="tweet"></div>
+						<?php } ?>
 					</div>
 
 					<!-- Column 4: Social/copyright info -->
@@ -31,13 +37,12 @@
 						</ul>
 						<?php endif; ?>
 						
-						<p>All content is &copy; Copyright 2015 SHARE and available under a <a href="http://creativecommons.org/licenses/by/4.0/deed.en_US" target="_blank">CC-BY 4.0 license</a>.</p>
-						<address>
-							Association of Research Libraries<br />
-							21 Dupont Circle NW #800<br />
-							Washington, DC 20036<br />
-							(202) 296-2296
-						</address>
+						<?php if (get_field('copyright_information', 'option')) {
+							the_field('copyright_information', 'option');
+						} ?>
+						<?php if (get_field('address', 'option')) { ?>
+							<address><?php the_field('address', 'option'); ?></address>
+						<?php } ?>
 					</div>
 
 					<div class="clearfix"></div>

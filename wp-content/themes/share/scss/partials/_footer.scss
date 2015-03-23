@@ -147,7 +147,7 @@ footer#page-footer {
       }
     }
 
-    // Visual styls
+    // Formstack Visual styls
     .fsForm {
       label {
         @include font-family-open-sans-regular;
@@ -222,7 +222,7 @@ footer#page-footer {
       @include span(40%);
     }
 
-    h6 {
+    h6.twitter-logo {
       padding-left: 30px;
 
       background: url(../img/icon-twitter-white-51x41.png) no-repeat;
@@ -282,6 +282,18 @@ footer#page-footer {
           content: "\ea2d";
         }
       }
+    }
+  }
+
+  // Twitter replacement
+  .twitter-replacement {
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
     }
   }
 

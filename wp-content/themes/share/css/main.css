@@ -1009,6 +1009,104 @@ label {
   .gform_confirmation_message p {
     margin-bottom: 0; }
 
+.fsBody {
+  margin-bottom: 0; }
+  .fsBody .fsRowBody,
+  .fsBody .fsSubmit {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+
+.fsForm {
+  background: none !important;
+  border: 0;
+  padding: 0;
+  box-shadow: none !important; }
+
+.fsCell {
+  padding: 0; }
+
+#fsRow1772252-6 {
+  display: none; }
+
+.fsSubmit {
+  background: none !important;
+  padding: 5px 0 0;
+  margin-bottom: 0; }
+
+.fsForm input[type=text],
+.fsForm input[type=email] {
+  min-width: 100%;
+  margin: 0; }
+
+#fsRow1772252-2 {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 2.38095%;
+  padding-right: 2.38095%;
+  padding-left: 0; }
+
+#fsRow1772252-3 {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 2.38095%;
+  padding-right: 2.38095%;
+  clear: none;
+  padding-right: 0; }
+
+#fsRow1772252-4 {
+  padding-top: 10px; }
+
+.fsSubmit input {
+  float: left; }
+
+.entry-content .fsBody .fsForm label {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #222421;
+  font-size: 15px; }
+.entry-content .fsBody .fsForm .fsRequiredMarker {
+  color: #009ED4; }
+.entry-content .fsBody .fsForm input[type=text],
+.entry-content .fsBody .fsForm input[type=email] {
+  padding: 8px 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 158, 212, 0.6) !important;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgba(34, 36, 33, 0.75);
+  font-size: 15px; }
+  .entry-content .fsBody .fsForm input[type=text]:focus,
+  .entry-content .fsBody .fsForm input[type=email]:focus {
+    color: #222421; }
+.entry-content .fsBody .fsForm input[type=submit] {
+  display: inline-block;
+  padding: 10px;
+  font-family: 'Arvo', serif;
+  font-weight: 400; }
+.entry-content .fsBody .fsForm .fsFieldFocused {
+  background-color: #fff; }
+  .entry-content .fsBody .fsForm .fsFieldFocused input[type=text],
+  .entry-content .fsBody .fsForm .fsFieldFocused input[type=email] {
+    border-color: #009ED4 !important; }
+.entry-content .fsBody .fsForm .fsValidationError {
+  background-color: #fff !important; }
+.entry-content .fsError {
+  margin: 0 0 20px 0;
+  border: 1px solid #E71DA7;
+  background: rgba(231, 29, 167, 0.05);
+  color: #222421;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0; }
+
 /*
 ==========================================================================
   SIDEBAR STYLES (scss/partials/_sidebar.scss)
@@ -1650,14 +1748,14 @@ footer#page-footer {
         float: left;
         padding-left: 2.38095%;
         padding-right: 2.38095%; } }
-    footer#page-footer .twitter-feed h6 {
+    footer#page-footer .twitter-feed h6.twitter-logo {
       padding-left: 30px;
       background: url(../img/icon-twitter-white-51x41.png) no-repeat;
       background-position: left center;
       background-size: 25px 20px; }
-      footer#page-footer .twitter-feed h6 a {
+      footer#page-footer .twitter-feed h6.twitter-logo a {
         color: #fff; }
-        footer#page-footer .twitter-feed h6 a:hover {
+        footer#page-footer .twitter-feed h6.twitter-logo a:hover {
           color: rgba(255, 255, 255, 0.5); }
     footer#page-footer .twitter-feed .tweet ul {
       list-style-type: none;
@@ -1688,6 +1786,12 @@ footer#page-footer {
         content: "\e9d9"; }
       footer#page-footer .twitter-feed .tweet .actions .tweet_retweet:before {
         content: "\ea2d"; }
+  footer#page-footer .twitter-replacement a {
+    color: #fff;
+    text-decoration: underline; }
+  footer#page-footer .twitter-replacement img {
+    max-width: 100%;
+    height: auto; }
   footer#page-footer .social-copyright {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
