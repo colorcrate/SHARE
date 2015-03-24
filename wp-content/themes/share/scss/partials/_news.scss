@@ -13,6 +13,10 @@ article.post {
     h2 {
       font-size: $huge - 4;
       margin: .25em 0 .5em;
+
+      @include media-query(mobile) {
+        font-size: $medium + 2;
+      }
     }
     .entry-meta {
       font-size: $small;

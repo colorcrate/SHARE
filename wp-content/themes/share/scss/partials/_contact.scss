@@ -9,6 +9,12 @@ article.contact {
     .email,
     .organization {
       @include span(50%);
+
+      @include media-query(mobile) {
+        @include span(100%);
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
     .email {
       padding-left: 0;

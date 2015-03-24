@@ -408,7 +408,7 @@ add_shortcode('wpb_childpages', 'list_section_navigation');
 
 function kb_custom_taxonomy_init() {
   // Add new "Locations" taxonomy to Posts
-  register_taxonomy('section', 'knowledge-base', array(
+  register_taxonomy('section', 'kb', array(
     // Hierarchical taxonomy (like categories)
     'hierarchical' => true,
     // This array of options controls the labels displayed in the WordPress Admin UI

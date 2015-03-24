@@ -1309,7 +1309,8 @@ label {
         padding-left: 30px; } }
   .standard-text-block .image {
     width: 80%;
-    height: auto; }
+    height: auto;
+    margin-bottom: 20px; }
 
 .blue-callout-block {
   background: #009ED4;
@@ -1372,6 +1373,9 @@ article.post {
   article.post header h2 {
     font-size: 28px;
     margin: .25em 0 .5em; }
+    @media only screen and (max-width: 768px) {
+      article.post header h2 {
+        font-size: 20px; } }
   article.post header .entry-meta {
     font-size: 12px; }
   article.post .entry-summary .thumbnail {
@@ -1465,7 +1469,9 @@ footer.post-footer .tags {
     background: url(../img/icon-arrow-search-27x41.png);
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 13px auto; }
+    background-size: 13px auto;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px; }
 .knowledge-base .section {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1519,6 +1525,18 @@ article.contact .gform_wrapper .organization {
   float: left;
   padding-left: 2.38095%;
   padding-right: 2.38095%; }
+  @media only screen and (max-width: 768px) {
+    article.contact .gform_wrapper .email,
+    article.contact .gform_wrapper .organization {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      float: left;
+      padding-left: 2.38095%;
+      padding-right: 2.38095%;
+      padding-left: 0;
+      padding-right: 0; } }
 article.contact .gform_wrapper .email {
   padding-left: 0; }
 article.contact .gform_wrapper .organization {
@@ -1749,6 +1767,7 @@ footer#page-footer {
         padding-left: 2.38095%;
         padding-right: 2.38095%; } }
     footer#page-footer .twitter-feed h6.twitter-logo {
+      min-height: 22px;
       padding-left: 30px;
       background: url(../img/icon-twitter-white-51x41.png) no-repeat;
       background-position: left center;

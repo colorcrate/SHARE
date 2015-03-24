@@ -9,7 +9,7 @@ include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
 // =====================================================
 //
-//  SECTIONAL NAVIGATION
+//  SECTIONAL NAVIGATION WIDGET
 //
 // ===================================================== 
 
@@ -24,7 +24,6 @@ class display_section_navigation extends WP_Widget {
   }
 
   // Creating widget front-end
-  // This is where the action happens
   public function widget( $args, $instance ) {
     global $post; 
     $section = get_post_type($post); // Get the post type (aka 'section')
@@ -58,7 +57,7 @@ class display_section_navigation extends WP_Widget {
       $string = '<ul>' . $childpages . '</ul>';
     }
 
-    // This is where you run the code and display the output
+    // Echo front-end results
     echo __( $string, 'display_section_navigation_domain' );
     // echo $args['after_widget'];
   }
@@ -87,7 +86,7 @@ add_action( 'widgets_init', 'display_section_navigation_load' );
 
 // =====================================================
 //
-//  END SECTIONAL NAVIGATION
+//  END SECTIONAL NAVIGATION WIDGET
 //
 // =====================================================
 
@@ -98,7 +97,7 @@ add_action( 'widgets_init', 'display_section_navigation_load' );
 
 // =====================================================
 //
-//  RELATED POSTS
+//  RELATED POSTS WIDGET
 //
 // ===================================================== 
 
@@ -113,7 +112,6 @@ class display_related_posts extends WP_Widget {
   }
 
   // Creating widget front-end
-  // This is where the action happens
   public function widget( $args, $instance ) {
     if (is_single()) {
       global $post;
@@ -158,7 +156,7 @@ class display_related_posts extends WP_Widget {
         );
       }
       
-      // This is where you run the code and display the output
+      // Echo front-end results
       echo __( $related_posts['posts'], 'display_related_posts_domain' );
     }
   }
@@ -187,7 +185,7 @@ add_action( 'widgets_init', 'display_related_posts_load' );
 
 // =====================================================
 //
-//  END RELATED POSTS
+//  END RELATED POSTS WIDGET
 //
 // =====================================================
 
@@ -196,7 +194,7 @@ add_action( 'widgets_init', 'display_related_posts_load' );
 
 // =====================================================
 //
-//  KNOWLEDGE BASE NAVIGATION
+//  KNOWLEDGE BASE NAVIGATION WIDGET
 //
 // ===================================================== 
 
@@ -211,10 +209,10 @@ class display_knowledge_base_navigation extends WP_Widget {
   }
 
   // Creating widget front-end
-  // This is where the action happens
   public function widget( $args, $instance ) {
     if (!is_search()) {
       // Build subnavigation based on the section this knowledge domain is in
+      global $post;
       $currentPageID = $post->ID;
       $terms = wp_get_post_terms($post->ID, 'section');
 
@@ -251,7 +249,7 @@ class display_knowledge_base_navigation extends WP_Widget {
       $return .= '</li>';
     }
 
-    // This is where you run the code and display the output
+    // Echo front-end results
     echo __( $return, 'display_knowledge_base_navigation_domain' );
   }
     
@@ -279,7 +277,7 @@ add_action( 'widgets_init', 'display_knowledge_base_navigation_load' );
 
 // =====================================================
 //
-//  KNOWLEDGE BASE NAVIGATION
+//  END KNOWLEDGE BASE NAVIGATION WIDGET
 //
 // =====================================================
 
@@ -289,7 +287,7 @@ add_action( 'widgets_init', 'display_knowledge_base_navigation_load' );
 
 // =====================================================
 //
-//  CONTACT INFORMATION
+//  CONTACT INFORMATION WIDGET
 //
 // ===================================================== 
 
@@ -304,7 +302,6 @@ class display_contact_information extends WP_Widget {
   }
 
   // Creating widget front-end
-  // This is where the action happens
   public function widget( $args, $instance ) {
 
     $return = '<li class="social-media">';
@@ -315,13 +312,13 @@ class display_contact_information extends WP_Widget {
     if(get_field('social_media_links', 'option')):
       $return .= '<ul class="social">';
       while(has_sub_field('social_media_links', 'option')):
-        $return .= '<li><a href="' . get_sub_field('url') . '" target="_blank"><span class="ss-icon">' . get_sub_field('icon') . '</span> ' . get_sub_field('title') . '</a></li>';
+        $return .= '<li><a href="' . get_sub_field('url') . '" target="_blank"><span class="ss-icon ss-' . get_sub_field('icon') . '"></span> ' . get_sub_field('title') . '</a></li>';
       endwhile;
       $return .= '</ul>';
     endif;
     $return .= '</li>';
 
-    // This is where you run the code and display the output
+    // Echo front-end results
     echo __( $return, 'display_contact_information_domain' );
   }
     
@@ -349,7 +346,69 @@ add_action( 'widgets_init', 'display_contact_information_load' );
 
 // =====================================================
 //
-//  CONTACT INFORMATION
+//  END CONTACT INFORMATION WIDGET
+//
+// =====================================================
+
+
+
+
+
+
+// =====================================================
+//
+//  TWITTER FEED WIDGET
+//
+// ===================================================== 
+
+class twitter_feed extends WP_Widget {
+
+  function __construct() {
+    parent::__construct(
+      'twitter_feed', // Widget base ID
+      __('@SHARE_research Twitter Feed', 'twitter_feed_domain'),  // Widget name in UI
+      array( 'description' => __( 'Displays recent tweets from @SHARE_research in the default Twitter embed.', 'twitter_feed_domain' ), ) // Widget description
+    );
+  }
+
+  // Creating widget front-end
+  public function widget( $args, $instance ) {
+
+    $return = '<li class="widget-container">';
+    $return .= '<h3>@SHARE_research</h3>';
+    $return .= '<a class="twitter-timeline" href="https://twitter.com/SHARE_research" data-widget-id="568555918565335040">Tweets by @SHARE_research</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+    $return .= '</li>';
+
+    // Echo front-end results
+    echo __( $return, 'twitter_feed_domain' );
+  }
+    
+  // Widget Backend 
+  public function form( $instance ) {
+    
+
+  // Widget admin form
+?>
+<?php 
+  }
+  
+  // Updating widget replacing old instances with new
+  public function update( $new_instance, $old_instance ) {
+    $instance = array();
+    return $instance;
+  }
+} // Class twitter_feed ends here
+
+// Register and load the widget
+function twitter_feed_load() {
+  register_widget( 'twitter_feed' );
+}
+add_action( 'widgets_init', 'twitter_feed_load' );
+
+// =====================================================
+//
+//  END TWITTER FEED WIDGET
 //
 // =====================================================
 

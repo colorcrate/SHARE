@@ -32,7 +32,7 @@
 						if(get_field('social_media_links', 'option')): ?>
 						<ul class="social ss-icon">
 							<?php while(has_sub_field('social_media_links', 'option')): ?>
-							<li><a href="<?php the_sub_field('url'); ?>" target="_blank"><?php the_sub_field('icon'); ?></a></li>
+							<li><a href="<?php the_sub_field('url'); ?>" target="_blank" class="ss-<?php the_sub_field('icon'); ?>" title="<?php the_sub_field('title'); ?>"></a></li>
 							<?php endwhile; ?>
 						</ul>
 						<?php endif; ?>
