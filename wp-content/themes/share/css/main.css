@@ -1511,6 +1511,11 @@ footer.post-footer .tags {
       font-size: 18px;
       line-height: 18px; }
 
+.search-results article {
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(34, 36, 33, 0.15); }
+
 /*
 ==========================================================================
   CONTACT STYLES (scss/partials/_contact.scss)

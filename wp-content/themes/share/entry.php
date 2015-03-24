@@ -2,7 +2,7 @@
 <header>
 <?php 
   // Entry meta
-  if (is_singular('post') || is_home()) {
+  if (is_singular('post') || is_home() || is_archive() && get_post_type() != 'kb') {
     get_template_part('entry', 'meta');
   }
 

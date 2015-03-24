@@ -3,7 +3,7 @@
   
   <header class="section-header">
     <div class="container">
-      <h1>The SHARE Knowledge Base</h1>
+      <a href="<?php bloginfo('url'); ?>/kb/"><h1>The SHARE Knowledge Base</h1></a>
     </div>
   </header>
 
