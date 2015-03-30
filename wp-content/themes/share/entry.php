@@ -7,10 +7,12 @@
   }
 
   // Headline
-  if ( is_singular() ) {
+  if ( is_singular() && get_post_type() != 'page') {
     echo '<h2 class="entry-title">';
     echo get_the_title();
     echo '</h2>';
+  } elseif (get_post_type() === 'page') {
+    // Do nothing!
   } else {
     echo '<h2 class="entry-title">';
     echo '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '" rel="bookmark">' . get_the_title() . '</a>';
