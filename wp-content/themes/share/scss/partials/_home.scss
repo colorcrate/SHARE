@@ -131,3 +131,35 @@
     }
   }
 }
+
+// Home logo boxes
+// From EFC – March 30, 2015
+
+div.home-logo-box {
+  margin: 0 -40%;
+  text-align: center;
+
+  @include media-query(mobile) {
+    margin: 0;
+  }
+}
+
+div.home-logo-box a img {
+  width: 20%;
+  -webkit-filter: grayscale(100%);
+  filter: gray;
+  filter: grayscale(100%);
+  opacity: .6;
+}
+
+div.home-logo-box img.spacer {
+  width: 10%;
+}
+
+div.home-logo-box a:hover img {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity: 1;
+}
