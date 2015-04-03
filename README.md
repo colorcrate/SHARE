@@ -8,11 +8,11 @@ Working with SASS partials as opposed to editing the compiled CSS makes for a mu
 
 You will need the following software installed:
 
-* Have the most recent version of SASS installed and running
-* Have Compass and Susy installed: http://compass-style.org/ http://susy.oddbird.net/
+* The most recent version of SASS: http://sass-lang.com/
+* Compass and Susy, tools and frameworks for SASS: http://compass-style.org/ http://susy.oddbird.net/
 
-In order to compile .scss to .css (OS X directions supplied, Windows will be similar but you won't use Terminal)
+In order to compile .scss into .css, do the following: (OS X directions supplied, Windows will be similar but you won't use Terminal)
 
-* In Terminal, navigate to the template folder – wp-content/themes/share/
-* Type the following ```sass --watch scss:css```
-* Saving anything in the scss folder will automatically compile a new main.css and main.css.map, both of which should be uploaded.
+* In Terminal, navigate to the template folder: ```wp-content/themes/share/```
+* Type the following ```sass --watch scss:css``` and hit enter.
+* SASS will begin watching the scss folder. Saving anything in the scss folder will automatically compile a new main.css and main.css.map, both of which should be uploaded.
