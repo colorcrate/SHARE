@@ -2,7 +2,7 @@
 
 ### CSS modifications
 
-To modify the CSS it is strongly suggested that you work with the SASS partials in this folder: wp-content/themes/share/scss  For more information about SASS partials, please see this article: http://thesassway.com/beginner/how-to-structure-a-sass-project
+To modify the CSS it is strongly suggested that you work with the SASS partials in this folder: ```wp-content/themes/share/scss```  For more information about SASS partials, please see this article: http://thesassway.com/beginner/how-to-structure-a-sass-project
 
 Working with SASS partials as opposed to editing the compiled CSS makes for a much more maintainable and organized code structure.
 
