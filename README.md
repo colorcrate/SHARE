@@ -16,3 +16,7 @@ In order to compile .scss into .css, do the following: (OS X directions supplied
 * In Terminal, navigate to the template folder: ```wp-content/themes/share/```
 * Type the following ```sass --watch scss:css``` and hit enter.
 * SASS will begin watching the scss folder. Saving anything in the scss folder will automatically compile a new main.css and main.css.map, both of which should be uploaded.
+
+### Questions?
+
+Shoot Ian an email at ian@colorcrate.com
